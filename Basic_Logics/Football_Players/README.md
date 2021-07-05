@@ -21,8 +21,17 @@
 ## Data
    * **Source**
      - Prof. Shradha Gawankar in the DNSC6211: Programming for Analytics
-     - Data is available [here](https://github.com/hshehjue/Data_Mining_Project/blob/main/Basic_Logics/STEM_careers/GWU_STEM.xlsx)
+     - Data is available [here](https://github.com/hshehjue/Data_Mining_Project/blob/main/Basic_Logics/Football_Players/Football_Players.xlsx)
    * **Data Composition**
-     - **Rows:** 241
-     - **Columns:** 6
+     - **Rows:** 43
+     - **Columns:** 9
    * **Features**
+     - *Player* - the player number
+     - *Comp* - completed passes
+     - *Att* - attempted passes
+     - *Pct* - completion percentage
+     - *Yds* - total yards thrown
+     - *Avg* - average yards per attempt 
+     - *Yds/G* - yards thrown per game
+     - *TD* - number of touchdowns
+     - *Int* - number of interceptions
