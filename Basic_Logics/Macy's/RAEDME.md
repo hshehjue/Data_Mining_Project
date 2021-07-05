@@ -27,6 +27,7 @@
      - **Rows:** 500
      - **Columns:** 8
    * **Features**
+     - *Yearly Amount Spent(**Response**)* - annual amount spent by customer
      - *Email* - customer email
      - *Address* - customer address
      - *Avatar* - color options
@@ -34,4 +35,4 @@
      - *Time on App* - Average time spent on App (in minutes)
      - *Time n Web* - Average time spent on Web (in minutes)
      - *Length of Membership* - number of years the customer has been a mmember
-     - *Yearly Amount Spent* - annual amount spent by customer (dependent variable)
+    
