@@ -2,11 +2,11 @@
 
 ## Assignment
 ### Author:
-     - Seungheon Han
+   * Seungheon Han
 ### Purpose:
-     - Assignment given by DNSC6211: Programming for Analytics
+   * Assignment given by DNSC6211: Programming for Analytics
 ### Date:
-     - December 2020 
+   * December 2020 
      
 ## Model
    * **Objective**
