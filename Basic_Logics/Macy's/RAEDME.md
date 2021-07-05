@@ -24,6 +24,14 @@
      - Prof. Shradha Gawankar in the DNSC6211: Programming for Analytics
      - Data is available [here](https://github.com/hshehjue/Data_Mining_Project/blob/main/Basic_Logics/Macy's/macys)
    * **Data Composition**
-     - **Rows:** 43
-     - **Columns:** 9
+     - **Rows:** 500
+     - **Columns:** 8
    * **Features**
+     - *Email* - customer email
+     - *Address* - customer address
+     - *Avatar* - color options
+     - *Avg Session Length* - average lenght of instore session with stylist
+     - *Time on App* - Average time spent on App (in minutes)
+     - *Time n Web* - Average time spent on Web (in minutes)
+     - *Length of Membership* - number of years the customer has been a mmember
+     - *Yearly Amount Spent* - annual amount spent by customer (dependent variable)
