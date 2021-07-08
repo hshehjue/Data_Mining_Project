@@ -1,0 +1,800 @@
+---
+title: "Linear Models with Model Selection"
+author: "Seungheon Han"
+output:
+  pdf_document: default
+  html_document: default
+header-includes: \usepackage{amsgen,amsmath,amstext,amsbsy,amsopn,amssymb,mathabx,amsthm,bm,bbm}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+if(!require(ISLR)) { install.packages("ISLR", repos = "http://cran.us.r-project.org"); library(ISLR) }
+if(!require(leaps)) { install.packages("leaps", repos = "http://cran.us.r-project.org"); library(leaps) }
+if(!require(glmnet)) { install.packages("glmnet", repos = "http://cran.us.r-project.org"); library(glmnet) }
+if(!require(pls)) { install.packages("pls", repos = "http://cran.us.r-project.org"); library(pls) }
+```
+\theoremstyle{definition}
+\newtheorem*{hint}{Hint}
+
+\theoremstyle{remark}
+\newtheorem*{rmk}{Remark}
+
+
+1. generate simulated data, and then use this data to perform model selection.
+
+(a) Use the `rnorm` function to generate a predictor $\bm{X}$ of length 
+$n = 100$, as well as a noise vector $\bm{\epsilon}$ of length $n = 100$.
+
+```{r}
+set.seed(123)
+X <- rnorm(100)
+error <- rnorm(100)
+```
+
+
+(b) Generate a response vector $\bm{Y}$ of length $n = 100$ according to the model 
+$$ Y = \beta_0 + \beta_1 X + \beta_2 X^2 + \beta_3 X^3 + \epsilon, 
+$$ where $\beta_0 = 3$, $\beta_1 = 2$, $\beta_2 = -3$, $\beta_3 = 0.3$.
+    
+```{r}
+beta <- c(3, 2, -3, 0.3)
+X.mat <- matrix(c(rep(1, 100), X, X^2, X^3), ncol = 4)
+Y <- X.mat%*%beta + error
+```
+
+
+(c) perform best subset selection in order to choose the best model containing 
+the predictors $(X, X^2, \cdots, X^{10})$. 
+    
+```{r}
+
+predictor <- matrix(c(X, X^2, X^3, X^4, X^5, X^6, X^7, X^8, X^9, X^10), ncol = 10)
+simul.df <- data.frame(Y, predictor)
+
+library(leaps)
+reg.fit <- regsubsets(Y~., data = simul.df, nvmax = 10)
+reg.summary <- summary(reg.fit)
+print(reg.summary)
+
+# Cp
+reg.summary$cp
+# BIC
+reg.summary$bic
+# adj R-sq
+reg.summary$adjr2
+
+
+# Plot 
+par(mfrow=c(3,1))
+
+# Cp -> model with 3 features
+plot(reg.summary$cp, xlab = "Number of Variables", ylab = "Cp", type = "l")
+best.min.cp <- which.min(reg.summary$cp)
+points(best.min.cp, reg.summary$cp[best.min.cp], col = "red", cex=2, pch=20)
+
+# BIC -> model with 3 features
+plot(reg.summary$bic, xlab = "Number variables", ylab = "BIC", type = "l")
+best.min.bic <- which.min(reg.summary$bic)
+points(best.min.bic, reg.summary$bic[best.min.bic], col = "red", cex=2, pch=20)
+
+# adj R-sq -> model with 6 features
+plot(reg.summary$adjr2, xlab = "Number of variables", ylab = "adj R-sq", type = "l")
+best.max.adjr2 <- which.max(reg.summary$adjr2)
+points(best.max.adjr2, reg.summary$adjr2[best.max.adjr2], col = "red", cex=2, pch=20)
+```
+```{r}
+# Selected Predictors
+
+plot(reg.fit, scale = "Cp") 
+
+plot(reg.fit, scale = "bic") 
+
+plot(reg.fit, scale = "adjr2") 
+
+
+
+# Coefficients
+
+# Best subset based on Cp
+coef(reg.fit, best.min.cp)
+
+# Best subset based on BIC
+coef(reg.fit, best.min.bic)
+
+# Best subset based on adj R-sq
+coef(reg.fit, best.max.adjr2)
+```
+
+
+
+(d) Repeating (c), using forward stepwise selection and also using backwards 
+stepwise selection.
+    
+```{r}
+# Forward Stepwise Selectioin 
+regfit.fwd <- regsubsets(Y~., data = simul.df, nvmax = 10, method = "forward")
+fwd.summary <- summary(regfit.fwd)
+print(fwd.summary)
+# Cp
+fwd.summary$cp
+# BIC
+fwd.summary$bic
+# adj R-sq
+fwd.summary$adjr2
+
+# Plot (Forward Stepwise)
+par(mfrow=c(3,1))
+
+# Cp -> model with 3 features
+plot(fwd.summary$cp, xlab = "Number of Variables", ylab = "Cp", type = "l")
+fwd.min.cp <- which.min(fwd.summary$cp)
+points(fwd.min.cp , fwd.summary$cp[fwd.min.cp], col = "red", cex=2, pch=20)
+
+# BIC -> model with 3 features
+plot(fwd.summary$bic, xlab = "Number variables", ylab = "BIC", type = "l")
+fwd.min.bic <- which.min(fwd.summary$bic)
+points(fwd.min.bic, fwd.summary$bic[fwd.min.bic], col = "red", cex=2, pch=20)
+
+# adj R-sq -> model with 6 features
+plot(fwd.summary$adjr2, xlab = "Number of variables", ylab = "adj R-sq", type = "l")
+fwd.max.adjr2 <- which.max(fwd.summary$adjr2)
+points(fwd.max.adjr2, fwd.summary$adjr2[fwd.max.adjr2], col = "red", cex=2, pch=20)
+
+```
+
+```{r}
+# Selected Predictors
+plot(regfit.fwd, scale = "Cp")
+
+plot(regfit.fwd, scale = "bic") 
+
+plot(regfit.fwd, scale = "adjr2") 
+
+
+# Coefficients
+# Best subset based on Cp
+coef(regfit.fwd, fwd.min.cp)
+
+# # Best subset based on BIC
+coef(regfit.fwd, fwd.min.bic)
+
+# Best subset based on adj R-sq
+coef(regfit.fwd, fwd.max.adjr2)
+
+```
+    
+    Comment:
+    In the cases of Cp and BIC, Forward Stepwise method selects the same variables
+    as the ones Best Subset selects. However, for the adj R-sq case, 
+    the selected models are different. 
+    We can see a difference between the two methods here: 
+    Best subset selection is not restricted to making pairs of variables 
+    but the pairs of FWD Stepwise 
+    must include previous pairs as the number of variables increase.
+    
+    
+```{r}
+# Backward Stepwise Selectioin 
+regfit.bwd <- regsubsets(Y~., data = simul.df, nvmax = 10, method = "backward")
+bwd.summary <- summary(regfit.bwd)
+print(bwd.summary)
+
+# Cp
+bwd.summary$cp
+# BIC
+bwd.summary$bic
+# adj R-sq
+bwd.summary$adjr2
+
+
+# Plot (Backward Stepwise)
+
+par(mfrow=c(3,1))
+
+# Cp -> model with 6 features
+plot(bwd.summary$cp, xlab = "Number of Variables", ylab = "Cp", type = "l")
+bwd.min.cp <- which.min(bwd.summary$cp)
+points(bwd.min.cp, bwd.summary$cp[bwd.min.cp], col = "red", cex=2, pch=20)
+
+# BIC -> model with 6 features
+plot(bwd.summary$bic, xlab = "Number variables", ylab = "BIC", type = "l")
+bwd.min.bic <- which.min(bwd.summary$bic)
+points(bwd.min.bic, bwd.summary$bic[bwd.min.bic], col = "red", cex=2, pch=20)
+
+# adj R-sq -> model with 6 features
+plot(bwd.summary$adjr2, xlab = "Number of variables", ylab = "adj R-sq", type = "l")
+bwd.max.adjr2 <- which.max(bwd.summary$adjr2)
+points(bwd.max.adjr2 , bwd.summary$adjr2[bwd.max.adjr2 ], col = "red", cex=2, pch=20)
+
+
+```
+
+```{r}
+# Selected Predictors
+
+plot(regfit.bwd, scale = "Cp")
+
+plot(regfit.bwd, scale = "bic") 
+
+plot(regfit.bwd, scale = "adjr2") 
+
+
+# Coefficients
+# Best subset based on Cp
+coef(regfit.bwd, bwd.min.cp)
+
+# # Best subset based on BIC
+coef(regfit.bwd, bwd.min.bic)
+
+# Best subset based on adj R-sq
+coef(regfit.bwd, bwd.max.adjr2)
+```
+   
+    Comment: 
+    In comparison to the best models selected by Best Subset and FWD Stepwise methods, 
+    BWD Stepwise selects different variables across Cp, BIC and adj R-sq. 
+    Unlike Best Subset & FWD, BWD deos not generate the expected model which is X, X^2, X^3. 
+
+
+
+(e) Fit a LASSO model with `glmnet` function from `glmnet` package 
+to the simulated data, again using $(X,X^2,\cdots,X^{10})$ as predictors. 
+Use cross-validation to select the optimal value of $\lambda$. 
+Create plots of the cross-validation error as a function of $\lambda$.
+        
+```{r}
+library(glmnet)
+x <- model.matrix(Y~.,simul.df)[,-1]
+y = simul.df$Y
+
+# Split the data frame into train and test sets
+set.seed(123) 
+train = sample(1:nrow(x), nrow(x)/2)
+test = (-train)
+y.test = y[test]
+
+# fit Lasso Regression (Cross Validation)
+set.seed(123)
+cv.out = cv.glmnet(x[train,], y[train], alpha = 1) # To find the optimal tuning parameter 
+plot(cv.out)
+bestlam = cv.out$lambda.min # the lambda minimizing RSS 
+
+lasso.mod <- glmnet(x[train,], y[train], alpha=1, lambda = bestlam)
+coef(lasso.mod)
+
+lasso.pred <- predict(lasso.mod, s=bestlam, newx = x[test,])
+mean((lasso.pred-y.test)^2)
+
+out <- glmnet(x, y, alpha=1, lambda = bestlam)
+lasso.coef = predict(out, type="coefficients", s = bestlam)[1:11]
+lasso.coef[lasso.coef != 0] 
+```
+
+    Comment:
+    Based on the lambda obtained by cross validation, Lasso Regression selects 
+    the best model by dropping some variables to zero. As a result, 
+    the X, X^2, and X^3 are selected that were used to create the Y variable. 
+    By means of this feature of Lasso that drops some features to zero, 
+    it gives better interpretability. 
+    
+    
+
+(f) Now generate a response vector $Y$ according to the model 
+$$Y = \beta_0 + \beta_7 X^7 + \epsilon, $$ where $\beta_7 = 7$, 
+and perform best subset selection and the LASSO.
+    
+```{r}
+X.mat.new <- matrix(c(rep(1,100), X^7), ncol = 2)
+beta.new <- c(3, 7)
+Y.new <- X.mat.new%*%beta.new + error
+predictor <- matrix(c(X, X^2, X^3, X^4, X^5, X^6, X^7, X^8, X^9, X^10), ncol = 10)
+simul.df.new <- data.frame(Y.new, predictor)
+
+```
+
+# Best Subset Selection (Cp)
+```{r}
+reg.fit.new <- regsubsets(Y.new~., data = simul.df.new, nvmax = 10)
+reg.summary.new <- summary(reg.fit.new)
+reg.summary.new
+
+# Cp
+reg.summary.new$cp
+
+
+# Plot 
+
+# Cp -> model with 1 feature
+plot(reg.summary.new$cp, xlab = "Number of Variables", ylab = "RSS", type = "l")
+best.min.cp <- which.min(reg.summary.new$cp)
+points(best.min.cp, reg.summary.new$cp[best.min.cp], col = "red", cex=2, pch=20)
+```
+
+```{r}
+# Selected Predictors
+plot(reg.fit.new, scale = "Cp") # Cp -> model with 1 feature: X^7
+
+
+# Coefficients
+coef(reg.fit.new, best.min.cp)
+
+```
+
+# Lasso
+```{r}
+
+x.new <- model.matrix(Y.new~.,simul.df.new)[,-1]
+y.new = simul.df.new$Y.new
+
+set.seed(123)
+train = sample(1:nrow(x.new), nrow(x.new)/2)
+test = (-train)
+y.test = y.new[test]
+
+# fit Lasso Regression (Cross Validation)
+set.seed(123)
+cv.out = cv.glmnet(x.new[train,], y.new[train], alpha = 1)
+plot(cv.out)
+bestlam = cv.out$lambda.min
+
+lasso.mod.new <- glmnet(x.new[train,], y.new[train], alpha=1, lambda = bestlam)
+coef(lasso.mod.new)
+
+lasso.pred.new <- predict(lasso.mod.new, s=bestlam, newx = x.new[test,])
+mean((lasso.pred.new-y.test)^2)
+
+out.new <- glmnet(x.new, y.new, alpha=1, lambda = bestlam)
+lasso.coef.new = predict(out.new, type="coefficients", s = bestlam)[1:11]
+lasso.coef.new[lasso.coef.new != 0] 
+```
+
+
+    Comment:
+    The resulting best model by Best Subset selection includes only X^7 in the model
+    which was used to create Y variable. But the Lasso Regression 
+    selects three features one of which is X^7. 
+    
+
+
+2. I will predict the number of applications received using the other variables 
+   in the `College` data set from `ISLR` package.
+
+(a) Randomly split the data set into a training set and a test set (1:1).
+```{r}
+str(College)
+x <- model.matrix(Apps~., data = College)[, -1]
+y <- College$Apps
+
+set.seed(123)
+train <- sample(1:nrow(x), nrow(x)/2)
+test <- (-train)
+y.test <- y[test]
+
+```
+    
+    
+(b) Fit a linear model using least squares on the training set, and report 
+the test error obtained.
+```{r}
+college.lm <- lm(Apps~., data = College[train,]) # Fit LS
+print(summary(college.lm))
+
+pred.test <- predict(college.lm, newdata = College[test,])
+
+# Test Error (MSE based on the test set)
+paste("Test error is", round(mean((pred.test - y.test)^2), 3)) 
+```
+    
+    
+(c) Fit a ridge regression model on the training set, with $\lambda$ chosen 
+by 5-fold cross-validation. Report the test error obtained.
+```{r}
+# Optimal tuning parameter (5-Folds CV)
+cv.ridge <- cv.glmnet(x[train,], y[train], alpha = 0, nfolds=5)
+plot(cv.ridge)
+bestlamb.ridge <- cv.ridge$lambda.min
+paste("Best Lambda =", round(bestlamb.ridge,4))
+
+# Fit a Ridge model
+ridge.mod <- glmnet(x[train,], y[train], alpha = 0, lambda = bestlamb.ridge)
+
+# Ridge coefficient estimates
+coef(ridge.mod) 
+
+# Predicted values on the test set
+ridge.pred <- predict(ridge.mod, lambda = bestlamb.ridge, newx = x[test,])
+
+# Test Error (MSE)
+paste("Test error is", round(mean((ridge.pred-y.test)^2), 3))
+```
+    
+    
+(d) Fit a LASSO model on the training set, with $\lambda$ chosen by 5-fold 
+cross-validation. Report the test error obtained, along with the number 
+of non-zero coefficient estimates.
+```{r}
+# Optimal tuning parameter (5-Folds CV)
+cv.lasso <- cv.glmnet(x[train,], y[train], alpha = 1, nfolds=5)
+plot(cv.lasso)
+bestlamb.lasso <- cv.lasso$lambda.min
+paste("Best Lambda =", round(bestlamb.lasso,4))
+
+# Fit a Lasso model
+lasso.mod <- glmnet(x[train,], y[train], alpha = 1, lambda = bestlamb.lasso)
+
+# Predicted values on the test set
+lasso.pred <- predict(lasso.mod, lambda = bestlamb.lasso, newx = x[test,])
+
+# Test Error (MSE)
+paste("Test error is", round(mean((lasso.pred-y.test)^2), 3))
+
+# coefficient estimates
+coef(lasso.mod)
+# non-zero coefficient estimates
+lasso.coef = predict(lasso.mod, type="coefficients", s = bestlamb.lasso)[1:17]
+lasso.coef[lasso.coef != 0]
+```
+    
+    
+(e) Fit a PCR model on the training set, with $M$ chosen by 5-fold cross-validation. 
+```{r}
+set.seed(123)
+pcr.fit <- pcr(Apps~., data = College[train,], scale = TRUE, validation = "CV", segments = 5)
+# summary of the fitted PCR 
+summary(pcr.fit)
+
+# Plot MSEP by M
+validationplot(pcr.fit, val.type = "MSEP")
+print("The lowest CV error occurs at M = 17")
+
+# Test MSE
+pcr.pred <- predict(pcr.fit, x[test,], ncomp = 17)
+paste("Test error is", round(mean((pcr.pred-y.test)^2), 4), "with M = 17")
+
+print("No dimensionality reduction occurs")
+
+```
+
+    Comment:
+    The Test errors are significantly big no matter which model we use out of the four. 
+    The test errors from the LS, Lasso, and PCR models are similar. 
+    The Ridge model produces the biggest test MSE. 
+    So, in order to raise its accuracy, thorough preprocessing seems to be needed.
+
+
+
+
+3. using the `Weekly` data set, which is part of the `ISLR` package. 
+
+(a) Produce some numerical and graphical summaries of the `Weekly` data. 
+  
+```{r}
+# column names
+names(Weekly)
+
+# number of row & col
+dim(Weekly)
+
+# summary of the dataset
+summary(Weekly)
+
+# Correlations 
+cor(Weekly[, -9]) # Year & Volume are highly correlated 
+pairs(Weekly) 
+
+# Pattern of Volume
+attach(Weekly) 
+plot(Volume)
+
+```
+
+(b) Use the full data set to perform a logistic regression with `Direction` 
+as the response and the five lag variables plus `Volumn` as predictors. 
+```{r}
+weekly.df <- Weekly[c(2,3,4,5,6,7,9)]
+
+# Fit logistic model
+weekly.logit <- glm(Direction~., data = weekly.df, family = binomial)
+summary(weekly.logit)
+
+```
+
+    Comment:
+    the p-value of the lag2 is smaller than 0.05 which is statistically significant.
+    
+    
+
+(c) Compute the confusion matrix and overall fraction of correct predictions. 
+```{r}
+# Compute the probability of Direction being "up" given X
+glm.probs <- predict(weekly.logit, type = "response")
+
+# Convert the probabilities into class labels 
+glm.pred <- rep("Down", 1089) 
+glm.pred[glm.probs > .5] = "Up"
+
+# Confusion matrix
+confusion.mat <- table(glm.pred, Direction)
+print(confusion.mat)
+
+# Diagonal elements: Correct predictions
+mean(glm.pred == Direction) # Approximately 56% fraction of correct prediction (based on train set)
+paste("Train error:", round(1-mean(glm.pred == Direction), 3))
+
+# Mistakes made by the logistic regression
+confusion.mat[2,1] # False Positive:
+confusion.mat[1,2] # False Negative
+
+```
+
+
+(d) Now fit the logistic regression model using a training data period 
+from 1990 to 2008, with `Lag2` as the only predictor. Compute the confusion matrix 
+and the overall fraction of correct predictions for the held out data 
+(that is, the data from 2009 and 2010).
+```{r}
+# Make a hold-out sample 
+train <- (Year <= 2008)
+
+# Fit the logistic model with only the significant variable on the train set
+logit.new <- glm(Direction~Lag2, data = Weekly, family = binomial, subset = train)
+summary(logit.new)
+
+# Predict the Direction on the hold-out set
+prob.new <- predict(logit.new, Weekly[!train,], type = "response")
+pred.new <- rep("Down", 104)
+pred.new[prob.new > 0.5] = "Up"
+
+# Confusion matrix
+confusion.new <- table(pred.new, Direction[!train])
+print(confusion.new)
+
+# Fraction of correct predictions 
+mean(pred.new == Direction[!train]) # Approximately 62.5%
+```
+
+   
+(e) Repeat (d) using LDA.
+```{r}
+# Fit LDA
+library(MASS)
+lda.fit <- lda(Direction~Lag2, data = Weekly, subset = train)
+lda.fit
+
+# Prediction on the hold-out sample
+lda.pred <- predict(lda.fit, Weekly[!train,])
+lda.table <- table(lda.pred$class, Direction[!train])
+print(lda.table)
+
+# Fraction of correct predictions 
+mean(lda.pred$class == Direction[!train])
+```
+
+    
+(f) Repeat (d) using QDA.
+```{r}
+# Fit QDA
+qda.fit <- qda(Direction~Lag2, data = Weekly, subset = train)
+qda.fit
+
+# Prediction on the hold-out sample
+qda.pred <- predict(qda.fit, Weekly[!train,])
+qda.table <- table(qda.pred$class, Direction[!train])
+print(qda.table)
+
+# Fraction of correct predictions 
+mean(qda.pred$class == Direction[!train])
+```
+
+    
+
+    Commnet:
+    Logistic regression and Linear Discriminant Regression (LDA) yield the best 
+    accuracy on the basis of their test error which is 0.375. 
+    QDA's test error is bigger than the two:
+```{r}
+# Test error 
+# Logistic Model
+print(1-mean(pred.new == Direction[!train]))
+
+# LDA
+print(1-mean(lda.pred$class == Direction[!train]))
+
+# QDA
+print(1-mean(qda.pred$class == Direction[!train]))
+```
+    
+    
+    
+    
+(g) Experiment with different combinations of predictors, including possible 
+transformations and interactions, for each of the methods. Report the variables, 
+method, and associated confusion matrix that appears to provide the best results 
+on the held out data.
+```{r}
+# Logistic with different variable set
+glm.fit <- glm(Direction~Lag1 + Lag2 + log(Volume) + Lag1*log(Volume), data = Weekly, family = binomial, subset = train)
+summary(glm.fit)
+
+# Prediction 
+glm.prob <- predict(glm.fit, Weekly[!train,], type = "response")
+glm.pred <- c(rep("Down", 104))
+glm.pred[glm.prob > 0.5] = "Up"
+
+# Confusion matrix for Logistic Model
+print(table(glm.pred, Direction[!train]))
+
+# Test error of logistic model
+paste("test error is", round(1-mean(glm.pred == Direction[!train]),3))
+
+
+
+# LDA with different variable set
+lda.fit <- lda(Direction~Lag1 + Lag2 + log(Volume) + Lag1*log(Volume), data = Weekly, subset = train)
+lda.fit
+
+# Confusion matrix for LDA
+lda.pred <- predict(lda.fit, Weekly[!train,])
+lda.table <- table(lda.pred$class, Direction[!train])
+
+# Test error of LDA
+paste("test error is", round(1-mean(lda.pred$class == Direction[!train]),3))
+
+
+```
+
+
+    Comment:
+    QDA produces the best result in terms of its test error that is 0.375.
+    The variable used for the QDA model is Lag2^2 which is the transformed Lag2
+```{r}
+# QDA with different variable set
+qda.fit <- qda(Direction ~ poly(Lag2,2), data = Weekly, subset = train)
+qda.fit
+
+# Confusion matrix for QDA
+qda.pred <- predict(qda.fit, Weekly[!train,])
+qda.table <- table(qda.pred$class, Direction[!train])
+print(qda.table)
+# Test error of QDA
+paste("test error is", round(1-mean(qda.pred$class == Direction[!train]),3))
+```
+
+
+***
+
+4. I will develop a model to predict whether 
+   a given car gets high or low gas mileage based on the `Auto` data set.
+
+
+(a) Create a binary variable, `mpg01`, that contains a 1 if `mpg` 
+contains a value above its median, and a 0 if `mpg` contains a value below its median.
+```{r}
+auto <- Auto[, -1]
+auto <- auto[, c(8,1,2,3,4,5,6,7)]
+auto$mpg01 <- (Auto$mpg > median(Auto$mpg))+0 # mpg > median = 1 & otherwise = 0
+str(auto)
+```
+
+
+(b) Explore the data graphically in order to investigate the association 
+between `mgp01` and the other features. 
+```{r}
+# Scatterplots of each variable with mpg01
+library(car)
+for (i in 2:8){
+  scatterplot(mpg01~., regLine = T, smooth = F, boxplot = F, col= "red", data = auto[c(i,9)])
+}
+
+```
+
+```{r}
+# Correlations
+library(corrplot)
+corrplot(cor(auto[-1]), method = "number")
+```
+
+
+```{r}
+# Boxplots 
+
+library(ggplot2)
+# First, convert the discrete variable to factor type
+auto$mpg01 <- as.factor(auto$mpg01) 
+auto$origin <- as.factor(auto$origin) 
+
+# Boxplots with Jittered points 
+for(i in 2:7){
+  print(ggplot(data = auto, aes_string("mpg01", colnames(auto)[i]))+
+          geom_boxplot(aes(fill = mpg01), alpha = 0.4) +
+          geom_jitter(aes(col=origin), alpha = 0.4))
+}
+
+
+```
+
+(c) Split the data into a training set and a test set.
+```{r}
+set.seed(123)
+train <- sample(1:nrow(auto), nrow(auto)/1.5)
+test <- (-train)
+
+```
+
+
+(d) Perform LDA on the training data in order to predict `mpg01` using the 
+variables that seemed most associated with `mpg01` in (b). 
+```{r}
+# Fit LDA model
+auto.lda <- lda(mpg01~., data = auto[train,-c(1,2,3,6)])
+auto.lda
+
+# confusion matrix
+lda.pred <- predict(auto.lda, auto[test, -c(1,2,3,6)])
+lda.table <- table(lda.pred$class, auto[test, 9])
+print(lda.table)
+
+# Test error
+paste("Test error is", round(1-mean(lda.pred$class == auto$mpg01[test]),3))
+
+```
+
+
+(e) Perform QDA on the training data in order to predict `mpg01` using 
+the variables that seemed most associated with `mpg01` in (b). 
+```{r}
+# Fit QDA model
+auto.qda <- qda(mpg01~., data = auto[train,-c(1,2,3,6)])
+auto.qda
+
+# confusion matrix
+qda.pred <- predict(auto.qda, auto[test, -c(1,2,3,6)])
+qda.table <- table(qda.pred$class, auto[test, 9])
+print(qda.table)
+
+# Test error
+paste("Test error is", round(1-mean(qda.pred$class == auto$mpg01[test]),3))
+
+```
+
+(f) Perform logistic regression on the training data in order to predict 
+`mpg01` using the variables that seemed most associated with `mpg01` in (b). 
+```{r}
+# Fit Logistic Model
+auto.logit <- glm(mpg01~., data = auto[train,-c(1,2,3,6)], family = binomial)
+summary(auto.logit)
+
+# Compute the probability of mpg being bigger than its median given X
+auto.probs <- predict(auto.logit, auto[test,], type = "response")
+
+# Convert the probabilities into class labels 
+auto.pred <- rep("0", 131) 
+auto.pred[auto.probs > .5] = "1"
+
+# Confusion matrix
+logit.table <- table(auto.pred, auto$mpg01[test])
+print(logit.table)
+
+# Test error
+mean(auto.pred == auto$mpg01[test]) 
+paste("Test error:", round(1-mean(auto.pred == auto$mpg01[test]), 3))
+
+```
+
+    Comment:
+    I selected the variables based on the scatteplots, box and jitter plots, and correlations:
+    "horsepower", "weight", "year," and "origin"
+    I dropped "Cylinder" is highly correlated with most of the other variables 
+    and it does not seem to be significantly associated with the response on the basis of 
+    the scatter plot. The boxplot also shows it has outliers.
+    The boxplot presents that "accelaration" is not very differentiated 
+    by the different class of mpg01. 
+    In the case of "horsepower" and "displacement" which are the variables highly correlated 
+    with each other, I decided to drop the displacement variable because it is not notably
+    different by the dichotomous class according to the scatterplot. 
+    As a result, the logistic model generates the best result in terms of the smallest test error 
+    among the three models.
+    
+***
+
