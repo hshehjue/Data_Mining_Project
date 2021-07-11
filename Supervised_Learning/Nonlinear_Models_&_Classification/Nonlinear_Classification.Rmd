@@ -1,0 +1,496 @@
+---
+title: "Non-linear Models for Classification"
+author: "Seungheon Han"
+output:
+  pdf_document: default
+  html_document: default
+subtitle: \textbf{04/30/2021}
+header-includes: \usepackage{amsgen,amsmath,amstext,amsbsy,amsopn,amssymb,mathabx,amsthm,bm,bbm}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+if(!require(ISLR)) { install.packages("ISLR", repos = "http://cran.us.r-project.org"); library("ISLR") }
+if(!require(class)) { install.packages("class", repos = "http://cran.us.r-project.org"); library("class") }
+if(!require(e1071)) { install.packages("e1071", repos = "http://cran.us.r-project.org"); library("e1071") }
+if(!require(splines)) { install.packages("splines", repos = "http://cran.us.r-project.org"); library("splines") }
+```
+\theoremstyle{definition}
+\newtheorem*{hint}{Hint}
+
+\theoremstyle{remark}
+\newtheorem*{rmk}{Remark}
+
+
+1. Use KNN & SVM to predict whether a given car gets high or low gas mileage 
+based on the `Auto` data set.  
+
+(a) Create a binary variable `mpg01`, and generate the training and test sets
+```{r}
+pacman::p_load(ISLR, GGally, ggplot2, dplyr, class, e1071,caret,tree, gbm, randomForest)
+
+
+auto <- Auto[, setdiff(names(Auto), c("name"))]
+auto$origin <- as.factor(auto$origin)
+auto$cylinders <- as.factor(auto$cylinders)
+str(auto)
+
+auto$mpg01 <- ifelse(auto$mpg > median(auto$mpg), 1,0)
+auto <- auto[, setdiff(names(auto), c("mpg"))]
+auto$mpg01 <- as.factor(auto$mpg01)
+
+
+set.seed(123)
+split <- sample(2, nrow(auto), replace=T, prob = c(0.8, 0.2)) 
+train <- auto[split == 1,]
+test <- auto[split == 2,]
+```
+    
+    
+(b) Perform KNN on the training data, with several values of $K$, in order to 
+predict `mpg01`. Use only the variables that seemed most associated with `mpg01`. 
+```{r}
+### exploring the relationships between mpg01 and each of the predictor
+auto %>%
+  ggpairs(aes(col = mpg01, fill = mpg01)) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+
+
+for(i in 1:ncol(auto)){
+  print(ggplot(auto, aes_string("mpg01", colnames(auto)[i]))+
+          geom_jitter(aes(col=origin)))
+}
+### the most associated predictors: cylinders, displacement, horsepower, weight, year
+train <- train %>%
+  select(-c("acceleration", "origin"))
+test <- test %>%
+  select(-c("acceleration", "origin"))
+
+train_x <- as.data.frame(train[,setdiff(names(train), c("mpg01"))])
+train_y <- train[, "mpg01"]
+test_x <- as.data.frame(test[, setdiff(names(test), c("mpg01"))])
+test_y <- test[, "mpg01"]
+### k-fold CV for find the best K in KNN model 
+set.seed(123)
+K.knn = c(1:20)
+k.fold <- 10
+folds <- createFolds(train_y, k = k.fold)
+
+error.vec = NULL
+for(i in K.knn){
+  error.list = NULL
+  for(j in 1:k.fold){
+    knn.pred <- knn(train_x[-unlist(folds[j]),], train_x[unlist(folds[j]),], train_y[-unlist(folds[j])], k = i)
+    cv.error <- sum(knn.pred != train_y[unlist(folds[j])])/length(unlist(folds[j]))
+    error.list <- c(error.list, cv.error)
+  }
+  avg.error <- round(mean(error.list),4)
+  error.vec <- c(error.vec, avg.error)
+  print(paste("K =", i, "cv-error:", avg.error))
+}
+
+print(paste("The K minimizing the CV error: K =", match(min(error.vec), error.vec), "with error", min(error.vec)))
+
+# tune.knn function generates the same result
+set.seed(123)
+tune.out.knn <- tune.knn(x = train_x, y = train_y, k=1:20)
+print(paste("Best K:", tune.out.knn$best.parameters))
+
+### comment ###
+# K=8 generates the smallest validation error.
+```
+    
+    
+(c) Fit a support vector classifier to the training data with various 
+values of `cost`, in order to predict whether a car gets high or low gas mileage. 
+```{r}
+
+### (c) ###
+set.seed(123)
+tune.out.lin <- tune(svm, mpg01~., data = train, kernal = "linear",
+                     ranges = list(cost = c(0.1, 1, 10, 100, 1000, 10000,30000)))
+
+### CV-errors by different costs
+summary(tune.out.lin)
+
+### best cost 
+bestmod <- tune.out.lin$best.model
+print(paste("the best cost is", summary(bestmod)$cost))
+
+### fit the svm model
+svm.fit.lin <- svm(formula= mpg01~., data = train, kernal = "linear",
+                   cost = 10000)
+summary(svm.fit.lin)
+```
+    
+    Comments: 
+    with support vector classifier, the best cost is 10000 
+    
+    
+(d) Now repeat (c), this time using SVMs with radial and polynomial basis kernels, 
+with different values of `gamma` and   `degree` and cost.
+```{r}
+### kernal = radial 
+set.seed(123)
+tune.out.rad <- tune(svm, mpg01~., data=train, kernel="radial",
+              ranges=list(cost=c(0.1,1,10,100,1000),
+                          gamma=c(0.5,1,2,3,4) ))
+
+summary(tune.out.rad)
+
+### best gamma & cost
+bestmod2 <- tune.out.rad$best.parameters
+print(paste("best cost:", bestmod2$cost,"& best gamma:", bestmod2$gamma))
+
+
+### kernal = polynomial
+set.seed(123)
+tune.out.poly <- tune(svm, mpg01~., data = train, kernal = "polynomial",
+                      ranges = list(cost = c(0.1,1,10,100,1000),
+                                    degree = c(1:10)))
+summary(tune.out.poly)
+bestmod3 <- tune.out.poly$best.parameters
+print(paste("best cost:", bestmod3$cost,"& best degree:", bestmod3$degree))
+
+```
+    
+    Comments: 
+    for SVM with radial kernel, 10-fold CV finds the optimal cost and gamma 
+    which have turned out to be 1 and 3 respectively. for SVM with polynomical kernel, 
+    the best cost and degree are 1000 and 1 respectively. 
+    
+    
+(e) Make some plots to back up your assertions in (b), (c) and (d).
+```{r}
+### best K minimizing the validation error is 8
+plot(tune.out.knn)
+
+### best cost minimizing the validation error is 10000
+plot(tune.out.lin)
+
+### best cost is 100 and gamma is 3
+plot(tune.out.rad)
+
+### best cost is 10000 and degree is 1
+plot(tune.out.poly)
+```
+    
+    
+(f) Compare the test errors of the best tuned models for KNN, linear SVM, 
+SVM with radial basis kernel, and SVM with polynomial basis kernel.
+```{r}
+### (f) ###
+
+### KNN model with K=8
+optimal.knn <- knn(train_x, test_x, train_y, k=8)
+table.knn <- table(optimal.knn, test_y)
+error.knn <- 1-sum(diag(table.knn))/sum(table.knn)
+
+### Support Vector Classifier with cost = 10000
+svm.fit.lin <- svm(formula= mpg01~., data = train, kernal = "linear",
+                   cost = 10000)
+pred.lin.svm <- predict(svm.fit.lin, test_x)
+table.lin.svm <- table(pred.lin.svm, test_y)
+error.lin.svm <- 1-sum(diag(table.lin.svm))/sum(table.lin.svm)
+
+### SVM with radial kernels with cost = 100, gamma = 3
+svm.fit.rad <- svm(formula= mpg01~., data = train, kernal = "radial",
+                   cost = 100, gamma = 3)
+pred.rad.svm <- predict(svm.fit.rad, test_x)
+table.rad.svm <- table(pred.rad.svm, test_y)
+error.rad.svm <- 1-sum(diag(table.rad.svm))/sum(table.rad.svm)
+
+### SVM with polynomial kernels with cost = 10000, degree = 1
+svm.fit.poly <- svm(formula= mpg01~., data = train, kernal = "polynomial",
+                   cost = 1000, degree = 1)
+pred.poly.svm <- predict(svm.fit.poly, test_x)
+table.poly.svm <- table(pred.poly.svm, test_y)
+error.poly.svm <- 1-sum(diag(table.poly.svm))/sum(table.poly.svm)
+
+### Comparing the test errors generated from the four models
+print(paste("test error of knn model:", round(error.knn,4)))
+print(paste("test error of linear svm model:", round(error.lin.svm,4)))
+print(paste("test error of radial svm model:", round(error.rad.svm,4)))
+print(paste("test error of polynomial svm model:", round(error.poly.svm,4)))
+
+### comment:
+# the SVM model with polynomial basis kernel produces the smallest test error. 
+```
+
+
+2. (Regression Tree, Boosting, Bagging and Random Forest) 
+Use the `OJ` data set which is part of the `ISLR` package. 
+
+(a) Create a training set containing a random sample of 800 observations, 
+and a test set containing the remaining observations.
+```{r}
+oj <- OJ
+set.seed(1)
+split.train <- sample(1:nrow(oj), 800)
+train <- oj[split.train,]
+test <- oj[-split.train,]
+```
+    
+    
+(b) Fit a tree to the training data, with `Purchase` as the response and 
+the other variables as predictors. Use the `summary()` function to produce 
+summary statistics about the tree, and describe the results obtained. 
+```{r}
+tree.oj.train <- tree(Purchase ~., train)
+summary(tree.oj.train)
+```
+    
+    Comments:
+    terminal nodes = 9, error rate = 15.875%
+    
+    
+(c) Pick one of the terminal nodes, and interpret the information displayed.
+```{r}
+tree.oj.train
+```
+    
+    Comments: 
+    node number (8): the observations whose LoyalCH is smaller than 
+    0.0356415 is classified from the upper branch into the node (8). 
+    the number of observations fell in the node 8 is 59, and its deviance 
+    is 10.14. the overall prediction for the node is "MM" and the fraction 
+    f MM here is 0.98305.
+    
+
+(d) Create a plot of the tree, and interpret the results.
+```{r}
+plot(tree.oj.train)
+text(tree.oj.train, pretty=0)
+```
+    
+    Comments: 
+    the predictors used for the tree is LoyalCH, PriceDiff, SpecialCH, 
+    ListPriceDiff, PctDiscMM.
+    among the predictors, LoyalCH located on the top is the most important variable 
+    and the tree is consisting of 8 subtrees with 9 terminal nodes
+    
+    
+(e) Predict the response on the test data, and produce a confusion matrix 
+comparing the test labels to the predicted test labels. 
+```{r}
+tree.pred <- predict(tree.oj.train, test, type = "class")
+conf.table <- table(tree.pred, test$Purchase)
+print(conf.table)
+test.error <- 1-sum(diag(conf.table))/sum(conf.table)
+print(paste("test error rate: ",round(test.error, 4)))
+```
+  
+    
+    
+(f) Determine the optimal tree size.
+```{r}
+set.seed(1) 
+cv.tree.oj <- cv.tree(tree.oj.train, FUN = prune.misclass)
+```
+
+
+(g) Produce a plot with tree size on the $x$-axis and cross-validated 
+classification error rate on the $y$-axis.
+```{r}
+plot(cv.tree.oj$size, cv.tree.oj$dev, type = "b")
+```
+
+    Comments:
+    based on the cross-validation error for each size, we can decide that
+    the best size(# terminal nodes) should be 8 or 9 because these have 
+    the smallest CV error which is 145.
+
+    
+(i) Produce a pruned tree corresponding to the optimal tree size obtained 
+using cross-validation.
+```{r}
+## using 8 as the optimal size
+prune.oj <- prune.misclass(tree.oj.train, best = 8)
+plot(prune.oj)
+text(prune.oj, pretty = 0)
+```
+    
+    
+(j) Compare the training error rates between the pruned and unpruned trees. 
+```{r}
+summary(tree.oj.train)
+summary(prune.oj)
+```
+    
+    Comments: 
+    training error rate of the unpruned model is 15.875%
+    training error rate of the pruned model is 15.875%
+    - the two models have the same training error rate
+    
+    
+(k) Compare the test error rates between the pruned and unpruned trees. 
+```{r}
+pred.pruned <- predict(prune.oj, test, type = "class")
+conf.table.pruned <- table(pred.pruned, test$Purchase)
+print(conf.table.pruned)
+test.error.pruned <- 1-sum(diag(conf.table.pruned))/sum(conf.table.pruned)
+
+print(paste("test error rate of the unpruned model: ", test.error))
+print(paste("test error rate of the pruned model: ", test.error.pruned))
+```
+
+    Comments: 
+    the test error rates of the two models are exactly equal
+
+
+(l) Perform boosting on the training set with 1,000 trees for a range of 
+values of the shrinkage parameter $\lambda$. Produce a plot with different 
+shrinkage values on the $x$-axis and the corresponding training error and 
+test error on the $y$-axis. 
+    
+```{r}
+train$Purchase <- ifelse(train$Purchase == "CH", 1, 0)
+test$Purchase <- ifelse(test$Purchase == "CH", 1, 0)
+
+
+## Plot with different shrinkage parameters and train errors
+set.seed(1)
+shrink <- c(0.1, 0.3, 0.5, 0.7, 0.9)
+train.errors <- NULL
+
+for(i in shrink){
+  boost2 <- gbm(Purchase~., data = train, distribution = "bernoulli",
+                n.trees = 1000, interaction.depth = 4, shrinkage=i)
+  pred2 <- ifelse(predict(boost2, newdata = train, 
+                          n.trees=1000, type="response")>0.5,1,0)
+  table2 <- table(pred2, train$Purchase)
+  train.errors <- c(train.errors, 1-sum(diag(table2))/sum(table2))
+}
+
+train.err.df<- data.frame(train.errors, shrink)
+ggplot(train.err.df, aes(x=shrink, y=train.errors))+
+  geom_line(color = "blue")+
+  geom_point(color = "blue")
+
+
+## Plot with different shrinkage parameters and test errors
+set.seed(1)
+test.errors <- NULL
+
+for(i in shrink){
+  boost1 <- gbm(Purchase~., data = train, distribution = "bernoulli",
+                n.trees = 1000, interaction.depth = 4, shrinkage=i)
+  pred1 <- ifelse(predict(boost1, newdata = test, 
+                          n.trees=1000, type="response")>0.5,1,0)
+  table1 <- table(pred1, test$Purchase)
+  test.errors <- c(test.errors, 1-sum(diag(table1))/sum(table1))
+}
+
+test.err.df<- data.frame(test.errors, shrink)
+ggplot(test.err.df, aes(x=shrink, y=test.errors))+
+  geom_line(color = "blue")+
+  geom_point(color = "blue")
+
+#results: shrinkage parameter 0.3 minimizes test error.
+
+set.seed(1)
+boost.oj.train <- gbm(Purchase~., data = train, distribution = "bernoulli",
+                      n.trees = 1000, interaction.depth = 4, shrinkage = 0.3)
+
+
+summary(boost.oj.train)
+
+pred.boost <- ifelse(predict(boost.oj.train, newdata = test, 
+                          n.trees=1000, type="response")>0.5,1,0)
+table1 <- table(pred.boost, test$Purchase)
+boost.test.error <- 1-sum(diag(table1))/sum(table1)
+
+print(paste("test error of the boosting model with shrinkage parameter = 0.3 is: ", round(boost.test.error,4)))
+```
+    
+    Comments: 
+    the important predictors of this model are:
+    "LoyalCH" and "WeekofPurchase"
+    
+    
+(m) Perform bagging on the training set and report the prediction performance 
+on the test set.
+```{r}
+set.seed(1)
+split.train <- sample(1:nrow(oj), 800)
+train <- oj[split.train,]
+test <- oj[-split.train,]
+
+set.seed(1)
+bag.oj.train = randomForest(Purchase~., data = train, mtry=17, importance=TRUE)
+pred.bag <- predict(bag.oj.train, newdata = test)
+bag.table <- table(pred.bag, test$Purchase)
+bag.error <- 1-sum(diag(bag.table))/sum(bag.table)
+print(paste("test error of the bagging model: ", round(bag.error, 4)))
+
+bag.oj.train$importance
+```
+    
+    Comments: 
+    test error is 18.52% and the top3 most important predictors are:
+    "LoyalCH", "WeekofPurchase", "PriceDiff"
+    
+    
+(n) Perform random forest on the training set with $\sqrt{p}$ and $p/3$ 
+predictors respectively and report the prediction performance on the test set. 
+```{r}
+# with sqrt(p) ntry (sqrt(p) is the default for random forest classification)
+# sqrt(p) is the default value of randomForest function:
+set.seed(1)
+rf.oj.train <- randomForest(Purchase~., data = train, importance = TRUE)
+
+rf.pred.sqrt <- predict(rf.oj.train, newdata = test)
+rf.table.sqrt <- table(rf.pred.sqrt, test$Purchase)
+rf.error.sqrt <- 1-sum(diag(rf.table.sqrt))/sum(rf.table.sqrt)
+print(paste("test error of the rf model with sqrt(p) mtry: ", round(rf.error.sqrt, 4)))
+
+# important predictors
+print(rf.oj.train$importance)
+
+
+# with p/3 mtry
+set.seed(1)
+rf.oj.train2 <- randomForest(Purchase~., data = train, mtry=6, importance = TRUE)
+
+rf.pred2<- predict(rf.oj.train2, newdata = test)
+rf.table2 <- table(rf.pred2, test$Purchase)
+rf.error2 <- 1-sum(diag(rf.table2))/sum(rf.table2)
+print(paste("test error of the rf model with p/3 mtry: ", round(rf.error2, 4)))
+
+# important predictors
+print(rf.oj.train2$importance)
+```
+    
+    Comments: 
+    * for mtry = sqrt(p):
+      test error is 17.04% and the top3 the most important predictors are:
+      "LoyalCH", "WeekofPurchase", "StoreID"
+            
+    * for mtry = p/3:
+      test error is 18.15% and the top3 the most important predictors are:
+      "LoyalCH", "WeekofPurchase", "PriceDiff"
+    
+    
+    
+(o) Compare the above models.
+    
+    1) test error of Pruned Tree:  0.1704
+       the top predictor: "LoyalCH"
+
+    2) test error of the Boosting model with shrinkage parameter = 0.3: 0.1963
+       important predictors: "LoyalCH", "WeekofPurchase"
+
+    3) test error of the Bagging model:  0.1852"
+       important predictors: "LoyalCH", "WeekofPurchase" 
+
+    4) test error of the Random Forest with mtry = sqrt(p): 0.1704 
+       important predictors are: "LoyalCH", "WeekofPurchase"
+            
+    5) test error of the Random Forest with mtry = p/3: 0.1815
+       important predictors are: "LoyalCH", "WeekofPurchase"
+       
+    Results: the Pruned Tree model and the Random Forest model with mtry=3/p
+             produce the lowest test errors and their importat predictors are
+             the same 
+             
+***
