@@ -5,15 +5,17 @@
 ### Data
    * **Source** 
      - *"Auto"* from ISLR package
-   * **Features**
+     
+   * **Number of Rows**
+     - 392
+     
+   * **Used Features**
      - *mpg (Target)* - miles per gallon
      - *cylinders* - Number of cylinders between 4 and 8
      - *displacement* - Engine displacement (cu. inches)
      - *horsepower* - Engine horsepower
      - *weight* - Vehicle weight (lbs.)
-     - *acceleration* - Time to accelerate from 0 to 60 mph (sec.)
      - *year* - Model year (modulo 100)
-     - *origin* - Origin of car (1. American, 2. European, 3. Japanese)
 
 
    * **Target**
@@ -22,7 +24,16 @@
      auto$mpg01 <- ifelse(auto$mpg > median(auto$mpg), 1,0)
      ```
      
-   * **Train Set**
+   * **Train & Test Set**
+     _ | Train | Test
+     --|-------|-------
+     Ratio|0.8|0.2
+     Num|318|74
+   
+### Model 
+#### 1. K - Nearest Neighbor (KNN)
+   * what
+   
      
      
      
