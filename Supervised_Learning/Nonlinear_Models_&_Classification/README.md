@@ -18,7 +18,9 @@
 
    * **Target**
      - *mpg01* - if mpg > median, 1 otherwise 0
-     - 
+     '''
+     auto$mpg01 <- ifelse(auto$mpg > median(auto$mpg), 1,0)
+     '''
 
 
 
