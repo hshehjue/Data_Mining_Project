@@ -22,6 +22,9 @@
      auto$mpg01 <- ifelse(auto$mpg > median(auto$mpg), 1,0)
      ```
      
+   * **Train Set**
+     
+     
      
 
 
