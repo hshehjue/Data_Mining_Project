@@ -30,9 +30,14 @@
      Ratio|0.8|0.2
      Num|318|74
    
-### Model 
+### Models
 #### 1. K - Nearest Neighbor (KNN)
-   * what
+   * **Parameters**
+     - K = 1:20
+     - 10 folds for cross validation
+   
+   * **CV Errors by K:**
+     
    
      
      
