@@ -33,13 +33,13 @@
 ### Models
 #### 1. K - Nearest Neighbor (KNN)
    * **Parameters**
-     - K = 1 ~ 20
+     - K = [1:20]
      - 10 folds for cross validation
    
    * **CV Errors by K:**
      <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Nonlinear_Models_%26_Classification/images/KNN%20.png width=70% height=70%> 
    
-   * **Optimal Parameter**
+   * **Optimal Parameters**
      - Best K = 8 
      - CV error = 0.1162
 
@@ -54,26 +54,54 @@
      <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Nonlinear_Models_%26_Classification/images/SVM_linear.png
  width=50% height=50%>
  
-   * **Optimal Parameter**
+   * **Optimal Parameters**
      - Cost = 10000
-     - CV error = 0.0817
-     - Dispersion = 0.03
+       - CV-Error = 0.0817
+       - Dispersion = 0.03
    
    * **Performance on Test Set**
      - Test Error = 0.0956
    
 #### 3. Support Vector Machine (SVM) with Radial Kernel  
+   
    * **Parameters**
      - Cost = [0.1, 1, 10, 100, 1000]
      - Gamma = [0.5, 1, 2, 3, 4]
    
    * **CV Errors by Cost & Gamma**
+     <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Nonlinear_Models_%26_Classification/images/SVM_radial.png
+ width=50% height=50%>  
+ 
+ 
+   * **Optimal Parameters**
+     - Cost = 1
+     - Gamma = 3
+       - CV-Error = 0.0627
+       - Dispersion = 0.0388
+ 
+   * **Performance on Test Set**
+     - Test Error = 0.1081
+  
+ #### 4. Support Vector Machine (SVM) with Polynomial Kernel 
      
+   * **Parameters**
+     - Cost = [0.1, 1, 10, 100, 1000]
+     - Degree = [1:10]
 
-
-
-
-
+   * **CV Errors by Cost & Gamma**
+     <img src= width=50% height=50%>
+   
+   
+   
+   * **Optimal Parameters**
+     - Cost = 1000
+     - Degree = 1
+       - CV-Error = 0.0817
+       - Dispersion = 0.0260
+       
+   
+     
+   * **Performance on Test Set**
 
  <img src= width=50% height=50%>    
 
