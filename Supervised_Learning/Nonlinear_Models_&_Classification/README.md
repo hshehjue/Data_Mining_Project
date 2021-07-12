@@ -3,6 +3,7 @@
 
 ## SET (A)
 ### Data
+----
    * **Source** 
      - *"Auto"* from ISLR package
      
@@ -34,8 +35,9 @@
 ----
    
 ### Models
-##### *10-Folds Cross Validation*
 ----
+
+##### *10-Folds Cross Validation*
    
 #### 1. K - Nearest Neighbor (KNN)
      
