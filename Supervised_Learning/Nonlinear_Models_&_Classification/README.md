@@ -60,7 +60,7 @@
    
    * **CV Errors by Cost**
      <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Nonlinear_Models_%26_Classification/images/SVM_linear.png
- width=50% height=50%>
+ width=65% height=65%>
  
    * **Optimal Parameters**
      - Cost = 10000
@@ -78,7 +78,7 @@
    
    * **CV Errors by Cost & Gamma**
      <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Nonlinear_Models_%26_Classification/images/SVM_radial.png
- width=50% height=50%>  
+ width=65% height=65%>  
  
  
    * **Optimal Parameters**
@@ -97,7 +97,7 @@
      - Degree = [1:10]
 
    * **CV Errors by Cost & Gamma**
-     <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Nonlinear_Models_%26_Classification/images/SVM_poly.png width=50% height=50%>
+     <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Nonlinear_Models_%26_Classification/images/SVM_poly.png width=65% height=65%>
    
    
    * **Optimal Parameters**
