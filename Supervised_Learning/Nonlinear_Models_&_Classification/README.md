@@ -218,12 +218,30 @@
      - Test Error = 0.1852
 
 ### 4. Randon Forest
+ 
+#### mtry = sqrt(p)
+  
+  * **Results**
+ <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Nonlinear_Models_%26_Classification/images/p:3.png width=50% height=50%> 
+ 
+   * **Top3 Features**
+     - *LoyalCH*
+     - *WeekofPurchase*
+     - *StoreID*
    
-   * **Parameters**
-     - mtry: sqrt(p)
-   * **Results**
- <img src= width=50% height=50%> 
+   * **Performance on Test Set**
+     - Test Error = 0.1704
    
+#### mtry = p/3
+  <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Nonlinear_Models_%26_Classification/images/p:3.png width=50% height=50%> 
+ 
+   * **Top3 Features**
+     - *LoyalCH*
+     - *WeekofPurchase*
+     - *StoreID*
+   
+   * **Performance on Test Set**
+     - Test Error = 0.1704
  <img src= width=50% height=50%>    
 
 
