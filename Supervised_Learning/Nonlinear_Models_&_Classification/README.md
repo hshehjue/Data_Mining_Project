@@ -32,8 +32,8 @@
      Num|318|74
    
 ### Models
-##### Cross-Validation**
-   * - 10 Folds CV
+##### Cross-Validation
+   * 10-Folds CV
    
 #### 1. K - Nearest Neighbor (KNN)
      
