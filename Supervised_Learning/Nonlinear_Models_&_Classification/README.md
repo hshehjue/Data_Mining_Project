@@ -6,8 +6,9 @@
    * **Source** 
      - *"Auto"* from ISLR package
      
-   * **Number of Rows**
-     - 392
+   * **Composition**
+     - Rows = 392
+     - Columns = 9
      
    * **Used Features**
      - *mpg (Target)* - miles per gallon
