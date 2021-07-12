@@ -44,7 +44,7 @@
      - Test Error = 0.1486
 #### 2. Support Vector Machine (SVM) with Linear Classifier     
    * **Parameters**
-     - 
+     - Cost = [0.1, 1, 10, 100, 1000, 10000, 30000]
  <img src= width=50% height=50%>    
 
 
