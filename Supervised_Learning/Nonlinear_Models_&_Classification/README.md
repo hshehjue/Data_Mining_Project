@@ -170,10 +170,15 @@
        - *PctDiscMM*
 
 #### Pruned Tree
-   <img src= width=50% height=50%>  
+   <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Nonlinear_Models_%26_Classification/images/tree_size_error.png width=60% height=60%>  
 
-
-
+   * **Optimal Parameters**
+     - Tree size: 8 or 9
+     
+   <img src= width=50% height=50%> 
+    
+    
+   
  <img src= width=50% height=50%>    
 
 
