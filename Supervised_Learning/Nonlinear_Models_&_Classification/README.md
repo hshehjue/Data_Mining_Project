@@ -39,12 +39,42 @@
    * **CV Errors by K:**
      <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Nonlinear_Models_%26_Classification/images/KNN%20.png width=70% height=70%> 
    
+   * **Optimal Parameter**
      - Best K = 8 
-     - Validation Error = 0.1162
+     - CV error = 0.1162
+
+   * **Performance on Test Set**
      - Test Error = 0.1486
+     
 #### 2. Support Vector Machine (SVM) with Linear Classifier     
    * **Parameters**
      - Cost = [0.1, 1, 10, 100, 1000, 10000, 30000]
+   
+   * **CV Errors by Cost**
+     <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Nonlinear_Models_%26_Classification/images/SVM_linear.png
+ width=50% height=50%>
+ 
+   * **Optimal Parameter**
+     - Cost = 10000
+     - CV error = 0.0817
+     - Dispersion = 0.03
+   
+   * **Performance on Test Set**
+     - Test Error = 0.0956
+   
+#### 3. Support Vector Machine (SVM) with Radial Kernel  
+   * **Parameters**
+     - Cost = [0.1, 1, 10, 100, 1000]
+     - Gamma = [0.5, 1, 2, 3, 4]
+   
+   * **CV Errors by Cost & Gamma**
+     
+
+
+
+
+
+
  <img src= width=50% height=50%>    
 
 
