@@ -39,7 +39,7 @@
 
 ##### *10-Folds Cross Validation*
    
-#### 1. K - Nearest Neighbor (KNN)
+### 1. K - Nearest Neighbor (KNN)
      
    * **Parameters**
      - K = [1:20]
@@ -54,7 +54,7 @@
    * **Performance on Test Set**
      - Test Error = 0.1486
      
-#### 2. Support Vector Machine (SVM) with Linear Classifier     
+### 2. Support Vector Machine (SVM) with Linear Classifier     
    * **Parameters**
      - Cost = [0.1, 1, 10, 100, 1000, 10000, 30000]
    
@@ -70,7 +70,7 @@
    * **Performance on Test Set**
      - Test Error = 0.0956
    
-#### 3. Support Vector Machine (SVM) with Radial Kernel  
+### 3. Support Vector Machine (SVM) with Radial Kernel  
    
    * **Parameters**
      - Cost = [0.1, 1, 10, 100, 1000]
@@ -90,7 +90,7 @@
    * **Performance on Test Set**
      - Test Error = 0.1081
   
- #### 4. Support Vector Machine (SVM) with Polynomial Kernel 
+ ### 4. Support Vector Machine (SVM) with Polynomial Kernel 
      
    * **Parameters**
      - Cost = [0.1, 1, 10, 100, 1000]
