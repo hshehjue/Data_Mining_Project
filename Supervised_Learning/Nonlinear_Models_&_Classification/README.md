@@ -186,10 +186,19 @@
      - Depth: 4
      - Shrinkage: [0.1, 0.3, 0.5, 0.7, 0.9]
    
-  <img src= width=50% height=50%>    
+  <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Nonlinear_Models_%26_Classification/images/train_error_shrinkage.png width=50% height=50%>   
+  
+  * **Optimal Parameters**
+    - Distribution: Bernoulli
+    - Tree size: 1000
+    - Depth: 4
+    - Shrinkage: 0.3
+
+  
      
-   
+  * **Global Feature Importance** 
     
+  <img src= width=50% height=50%> 
     
     
    
