@@ -156,14 +156,21 @@
 ### 1. Classification Tree
 
 #### Unpruned Tree
-   <img src= width=50% height=50%>    
+   <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Nonlinear_Models_%26_Classification/images/unpruned.png width=75% height=75%>    
 
-   * **Tree Size** 
+   * **Tree Info** 
      - Num of terminal nodes: 9
      - Residual Mean Deviance: 0.7432
-     - 
+     - CV-Error: 0.1587
+     - Used Features:
+       - *LoyalCH* 
+       - *PriceDiff* 
+       - *SpecialCH* 
+       - *ListPriceDiff* 
+       - *PctDiscMM*
 
-
+#### Pruned Tree
+   <img src= width=50% height=50%>  
 
 
 
