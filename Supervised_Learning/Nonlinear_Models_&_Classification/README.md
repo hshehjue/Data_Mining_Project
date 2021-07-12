@@ -43,7 +43,8 @@
      
    * **Parameters**
      - K = [1:20]
-     <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Nonlinear_Models_%26_Classification/images/KNN%20.png width=70% height=70%> 
+     
+    <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Nonlinear_Models_%26_Classification/images/KNN%20.png width=70% height=70%> 
    
    * **Optimal Parameters**
      - Best K = 8 
