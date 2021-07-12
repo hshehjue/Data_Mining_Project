@@ -156,6 +156,8 @@
 ### 1. Classification Tree
 
 #### Unpruned Tree
+   <img src= width=50% height=50%>    
+
    * **Tree Size** 
      - Num of terminal nodes: 9
      - Residual Mean Deviance: 0.7432
