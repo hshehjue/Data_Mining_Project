@@ -45,7 +45,7 @@
      - K = [1:20]
    
    * **CV Errors by K:**
-     <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Nonlinear_Models_%26_Classification/images/KNN%20.png width=70% height=70%> 
+        <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Nonlinear_Models_%26_Classification/images/KNN%20.png width=70% height=70%> 
    
    * **Optimal Parameters**
      - Best K = 8 
@@ -59,7 +59,7 @@
      - Cost = [0.1, 1, 10, 100, 1000, 10000, 30000]
    
    * **CV Errors by Cost**
-   <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Nonlinear_Models_%26_Classification/images/SVM_linear.png
+       <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Nonlinear_Models_%26_Classification/images/SVM_linear.png
  width=65% height=65%>
  
    * **Optimal Parameters**
@@ -77,7 +77,7 @@
      - Gamma = [0.5, 1, 2, 3, 4]
    
    * **CV Errors by Cost & Gamma**
-     <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Nonlinear_Models_%26_Classification/images/SVM_radial.png
+       <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Nonlinear_Models_%26_Classification/images/SVM_radial.png
  width=65% height=65%>  
  
  
