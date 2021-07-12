@@ -33,14 +33,18 @@
 ### Models
 #### 1. K - Nearest Neighbor (KNN)
    * **Parameters**
-     - K = 1:20
+     - K = 1 ~ 20
      - 10 folds for cross validation
    
    * **CV Errors by K:**
-     
+     <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Nonlinear_Models_%26_Classification/images/KNN%20.png width=70% height=70%> 
    
-     
-     
+     - Best K = 8 
+     - Validation Error = 0.1162
+     - Test Error = 0.1486
+#### 2. Support Vector Machine (SVM) with Linear Classifier     
+   * **Parameters**
+     - 
  <img src= width=50% height=50%>    
 
 
