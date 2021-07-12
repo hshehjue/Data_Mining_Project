@@ -89,8 +89,7 @@
      - Degree = [1:10]
 
    * **CV Errors by Cost & Gamma**
-     <img src= width=50% height=50%>
-   
+     <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Nonlinear_Models_%26_Classification/images/SVM_poly.png width=50% height=50%>
    
    
    * **Optimal Parameters**
@@ -99,9 +98,8 @@
        - CV-Error = 0.0817
        - Dispersion = 0.0260
        
-   
-     
    * **Performance on Test Set**
+     - Test Error = 0.0811
 
  <img src= width=50% height=50%>    
 
