@@ -155,27 +155,41 @@
 ----
 ### 1. Classification Tree
 
-#### Unpruned Tree
-   <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Nonlinear_Models_%26_Classification/images/unpruned.png width=75% height=75%>    
+#### Pruned Tree
+   <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Nonlinear_Models_%26_Classification/images/tree_size_error.png width=60% height=60%> 
+   
+   * **Optimal Parameters**
+     - Tree size: 8 or 9
+   
+   <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Nonlinear_Models_%26_Classification/images/pruned.png width=75% height=75%>    
 
    * **Tree Info** 
-     - Num of terminal nodes: 9
-     - Residual Mean Deviance: 0.7432
-     - CV-Error: 0.1587
+     - Num of terminal nodes: 8
+     - Residual Mean Deviance: 0.7598
+     - Training Error: 0.1588
      - Used Features:
        - *LoyalCH* 
        - *PriceDiff* 
        - *SpecialCH* 
        - *ListPriceDiff* 
        - *PctDiscMM*
+    
+   * **Performance on Test Set**
+     - Test Error = 0.1704 
 
-#### Pruned Tree
-   <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Nonlinear_Models_%26_Classification/images/tree_size_error.png width=60% height=60%>  
-
-   * **Optimal Parameters**
-     - Tree size: 8 or 9
+   
+#### 2. Gradient Boosting Machine (GBM)
+  
+   * **Parameters**
+     - Distribution: Bernoulli
+     - Tree size: 1000
+     - Depth: 4
+     - Shrinkage: [0.1, 0.3, 0.5, 0.7, 0.9]
+   
+  <img src= width=50% height=50%>    
      
-   <img src= width=50% height=50%> 
+   
+    
     
     
    
