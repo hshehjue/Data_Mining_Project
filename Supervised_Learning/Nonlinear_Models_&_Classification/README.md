@@ -207,8 +207,22 @@
    * **Parameters**
      - mtry: 17
    * **Results**
- <img src= width=50% height=50%>   
+ <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Nonlinear_Models_%26_Classification/images/bagging.png width=50% height=50%>   
+ 
+   * **Top3 Features**
+     - *LoyalCH*
+     - *WeekofPurchase*
+     - *PriceDiff*
+     
+   * **Performance on Test Set**
+     - Test Error = 0.1852
+
+### 4. Randon Forest
    
+   * **Parameters**
+     - mtry: sqrt(p)
+   * **Results**
+ <img src= width=50% height=50%> 
    
  <img src= width=50% height=50%>    
 
