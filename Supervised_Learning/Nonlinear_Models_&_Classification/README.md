@@ -32,10 +32,13 @@
      Num|318|74
    
 ### Models
+##### Cross-Validation**
+   * - 10 Folds CV
+   
 #### 1. K - Nearest Neighbor (KNN)
+     
    * **Parameters**
      - K = [1:20]
-     - 10 folds for cross validation
    
    * **CV Errors by K:**
      <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Nonlinear_Models_%26_Classification/images/KNN%20.png width=70% height=70%> 
