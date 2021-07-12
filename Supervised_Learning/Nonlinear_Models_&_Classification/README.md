@@ -43,13 +43,11 @@
      
    * **Parameters**
      - K = [1:20]
-   
-   * **CV Errors by K:**
-        <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Nonlinear_Models_%26_Classification/images/KNN%20.png width=70% height=70%> 
+     <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Nonlinear_Models_%26_Classification/images/KNN%20.png width=70% height=70%> 
    
    * **Optimal Parameters**
      - Best K = 8 
-     - CV error = 0.1162
+       - CV error = 0.1162
 
    * **Performance on Test Set**
      - Test Error = 0.1486
@@ -57,8 +55,6 @@
 ### 2. Support Vector Machine (SVM) with Linear Classifier     
    * **Parameters**
      - Cost = [0.1, 1, 10, 100, 1000, 10000, 30000]
-   
-   * **CV Errors by Cost**
        <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Nonlinear_Models_%26_Classification/images/SVM_linear.png
  width=65% height=65%>
  
@@ -75,8 +71,6 @@
    * **Parameters**
      - Cost = [0.1, 1, 10, 100, 1000]
      - Gamma = [0.5, 1, 2, 3, 4]
-   
-   * **CV Errors by Cost & Gamma**
        <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Nonlinear_Models_%26_Classification/images/SVM_radial.png
  width=65% height=65%>  
  
@@ -95,9 +89,7 @@
    * **Parameters**
      - Cost = [0.1, 1, 10, 100, 1000]
      - Degree = [1:10]
-
-   * **CV Errors by Cost & Gamma**
-<img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Nonlinear_Models_%26_Classification/images/SVM_poly.png width=65% height=65%>
+       <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Nonlinear_Models_%26_Classification/images/SVM_poly.png width=65% height=65%>
    
    
    * **Optimal Parameters**
