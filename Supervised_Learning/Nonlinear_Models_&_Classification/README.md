@@ -30,10 +30,12 @@
      --|-------|-------
      Ratio|0.8|0.2
      Num|318|74
+ 
+----
    
 ### Models
 ##### *10-Folds Cross Validation*
-   
+----
    
 #### 1. K - Nearest Neighbor (KNN)
      
