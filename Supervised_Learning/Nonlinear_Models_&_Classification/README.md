@@ -105,6 +105,66 @@
    * **Performance on Test Set**
      - Test Error = 0.0811
 
+### Best Model 
+  
+  * the SVM model with polynomial basis kernel produces the smallest test error (= 0.0811).
+
+----
+## SET (B)
+### Data
+----
+   * **Source** 
+     - *"OJ"* from ISLR package
+     
+   * **Composition**
+     - Rows = 1070
+     - Columns = 18
+     
+   * **Used Features**
+     - *Purchase(Target)* - A factor with levels CH and MM indicating whether the customer purchased Citrus Hill or Minute Maid Orange Juice
+     - *WeekofPurchase* - Week of purchase
+     - *StoreID* - Store ID
+     - *PriceCH* - Price charged for CH
+     - *PriceMM* - Price charged for MM
+     - *DiscCH* - Discount offered for CH
+     - *DiscMM* - Discount offered for MM
+     - *SpecialCH* - Indicator of special on CH
+     - *SpecialMM* - Indicator of special on MM
+     - *LoyalCH* - Customer brand loyalty for CH
+     - *SalePriceMM* - Sale price for MM
+     - *SalePriceCH* - Sale price for CH
+     - *PriceDiff* - Sale price of MM less sale price of CH
+     - *Store7* - A factor with levels No and Yes indicating whether the sale is at Store 7
+     - *PctDiscMM* - Percentage discount for MM
+     - *PctDiscCH* - Percentage discount for CH
+     - *ListPriceDiff* - List price of MM less list price of CH
+     - *STORE* - Which of 5 possible stores the sale occured at
+
+
+   * **Target**
+     - *Purchase* - A factor with levels CH and MM indicating whether the customer purchased Citrus Hill or Minute Maid Orange Juice
+     
+   * **Train & Test Set**
+     _ | Train | Test
+     --|-------|-------
+     Num|800|270
+ 
+----
+   
+### Models
+----
+### 1. Classification Tree
+
+#### Unpruned Tree
+   * **Tree Size** 
+     - Num of terminal nodes: 9
+     - Residual Mean Deviance: 0.7432
+     - 
+
+
+
+
+
  <img src= width=50% height=50%>    
 
 
