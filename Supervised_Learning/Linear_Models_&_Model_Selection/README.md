@@ -48,7 +48,6 @@
      - Cp with 3 = 2.185
      
        
-
    * **BIC**
      
    <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/best_BIC.png
@@ -68,4 +67,34 @@
 
 ### 2. Forward Stepwise Selection
      
-  <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/best_sub.png width=58% height=58%> 
+  <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/fwd.png width=58% height=58%> 
+  
+  
+   * **Cp**
+     
+   <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/fwd_cp.png
+ width=87% height=87%> 
+   
+     - Optimal Number of Variables = 3
+     - Cp with 3 = 2.185
+
+
+   * **BIC**
+     
+   <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/fwd_BIC.png
+ width=87% height=87%> 
+   
+    - Optimal Number of Variables = 3
+    - BIC with 3 = -267.576
+    
+   
+   * **Adjusted R-sq**
+     
+   <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/fwd_adj.png
+ width=87% height=87%> 
+   
+     - Optimal Number of Variables = 4
+     - adj-R^2 with 4 = 0.9411
+  
+  
+     
