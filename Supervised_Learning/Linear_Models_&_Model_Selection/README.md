@@ -204,6 +204,7 @@
       - The optimal number of feature = 1
  
    * **Optimal Feature**
+   
    <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/best_cp_2:2.png
  width=57% height=57%>
     
