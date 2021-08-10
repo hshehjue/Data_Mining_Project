@@ -217,10 +217,36 @@
 
    * **Best Tuning Parameter (Lambda)** 
    
-   <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/lambda.png
+   <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/lasso2_lambda.png
  width=87% height=87%>
 
-
-
-
+    - by 10-fold cross validation
+    
    
+   * **Lasso Coefficient of the train set (with the optimal lambda)**
+   
+   <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/lasso2_coeff.png
+ width=30% height=30%> 
+
+
+----
+## SET (C)
+### DATA
+----
+   * **Source** 
+     - *College* from ISLR package
+      
+   * **Composition**
+     - Rows = 100
+     - Columns = 10
+     
+   * **Used Features**
+     - 
+
+
+   * **Target**
+     - 
+     
+----
+### Model Selection Methods
+----
