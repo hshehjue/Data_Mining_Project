@@ -36,13 +36,13 @@
    
 ### 1. Best Subset Selection
    
-  <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/best_sub.png width=65% height=65%> 
+  <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/best_sub.png width=58% height=58%> 
 
      
    * **Cp**
      
    <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/best_cp.png
- width=80% height=80%> 
+ width=87% height=87%> 
    
      - Optimal Number of Variables = 3
      - Cp with 3 = 2.185
@@ -52,7 +52,7 @@
    * **BIC**
      
    <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/best_BIC.png
- width=80% height=80%> 
+ width=87% height=87%> 
    
     - Optimal Number of Variables = 3
     - BIC with 3 = -267.576
@@ -60,7 +60,7 @@
    * **Adjusted R-sq**
      
    <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/best_adjR.png
- width=80% height=80%> 
+ width=87% height=87%> 
    
      - Optimal Number of Variables = 6
      - adj-R^2 with 6 = 0.9418
