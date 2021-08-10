@@ -142,10 +142,17 @@
  
     - by 10-fold cross validation   
   
-   * **Lasso Coefficient (with the optimal lambda)**
+   * **Lasso Coefficient of the train set (with the optimal lambda)**
    
    <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/lasso_coeff1.png
  width=40% height=40%> 
    <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/lasso_coeff2.png
  width=40% height=40%> 
-   
+ 
+ 
+   * **Test Error**
+    ```
+    lasso.pred <- predict(lasso.mod, s=bestlam, newx = x[test,]) 
+    mean((lasso.pred-y.test)^2) 
+    ```
+    Error = 1.014784
