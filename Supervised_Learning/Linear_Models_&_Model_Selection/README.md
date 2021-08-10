@@ -1,47 +1,45 @@
 ## Description
-#### The assignment is designed to test diverse linear models on an arbitrarily created dataset and datasets from an R programming package. While each model being establined, model selection was excuted to avoid being over or under-fitted, which would be expected to keep the performance at the moderate level. 
+#### The assignment is designed to test diverse linear models along with manifold model selection techniques on an arbitrarily created dataset and datasets from an R package "ISLR". While each model being establined, the execution of the model selection prevented the data from being over or under-fitted. It was expected to keep the models' performance at the moderate or better level. In the Set(A), only a set of model selection methods are tested to see whether the methods properly sift out the variables where were employed to create the target variable. 
+
 ## SET (A)
 ### Data
 ----
    * **Source** 
-     - *"Auto"* from ISLR package
-     
+     - **Simulated data:**
+       - Y_hat = X + X^2 + X^3 + X^4 + X^5 + X^6 + X^7 + X^8 + X^9 + X^10
+      
    * **Composition**
-     - Rows = 392
-     - Columns = 9
+     - Rows = 100
+     - Columns = 10
      
    * **Used Features**
-     - *mpg (Target)* - miles per gallon
-     - *cylinders* - Number of cylinders between 4 and 8
-     - *displacement* - Engine displacement (cu. inches)
-     - *horsepower* - Engine horsepower
-     - *weight* - Vehicle weight (lbs.)
-     - *year* - Model year (modulo 100)
+     - X^1 ~ X^10
 
 
    * **Target**
-     - *mpg01* - if mpg > median, 1 otherwise 0
+     - Y = 
      ```
-     auto$mpg01 <- ifelse(auto$mpg > median(auto$mpg), 1,0)
+      set.seed(123)
+      X <- rnorm(100) 
+      error <- rnorm(100)
      ```
-     
-   * **Train & Test Set**
-     _ | Train | Test
-     --|-------|-------
-     Ratio|0.8|0.2
-     Num|318|74
+     ```
+      beta <- c(3, 2, -3, 0.3)
+      X.mat <- matrix(c(rep(1, 100), X, X^2, X^3), ncol = 4) 
+      Y <- X.mat%*%beta + error
+     ```
  
 ----
    
-### Models
+### Model Selection Methods
 ----
-
-##### *10-Folds Cross Validation*
    
-### 1. K - Nearest Neighbor (KNN)
+### 1. Best Subset Selection
+   
+  <img src=
+
      
-   * **Parameters**
-     - K = [1:20]
+   * **CP**
      
    <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Nonlinear_Models_%26_Classification/images/KNN%20.png width=70% height=70%> 
    
