@@ -145,9 +145,10 @@
    * **Lasso Coefficient of the train set (with the optimal lambda)**
    
    <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/lasso_coeff1.png
- width=40% height=40%> 
+ width=30% height=30%> 
+  
    <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/lasso_coeff2.png
- width=40% height=40%> 
+ width=30% height=30%> 
  
  
    * **Test Error**
