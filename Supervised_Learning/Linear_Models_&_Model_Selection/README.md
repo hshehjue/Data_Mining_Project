@@ -97,4 +97,35 @@
      - adj-R^2 with 4 = 0.9411
   
   
+### 3. Backward Stepwise Selection
      
+  <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/bwd.png width=58% height=58%> 
+  
+  
+   * **Cp**
+     
+   <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/bwd_cp.png
+ width=87% height=87%> 
+   
+     - Optimal Number of Variables = 6
+     - Cp with 3 = 4,261
+
+
+   * **BIC**
+     
+   <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/bwd_BIC.png
+ width=87% height=87%> 
+   
+    - Optimal Number of Variables = 6
+    - BIC with 3 = -258.02
+    
+   
+   * **Adjusted R-sq**
+     
+   <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/bwd_adj.png
+ width=87% height=87%> 
+   
+     - Optimal Number of Variables = 6
+     - adj-R^2 with 4 = 0.9416
+     
+
