@@ -151,8 +151,8 @@
  
  
    * **Test Error**
-    ```
-    lasso.pred <- predict(lasso.mod, s=bestlam, newx = x[test,]) 
-    mean((lasso.pred-y.test)^2) 
-    ```
-    Error = 1.014784
+     ```
+      lasso.pred <- predict(lasso.mod, s=bestlam, newx = x[test,]) 
+      mean((lasso.pred-y.test)^2) 
+     ```
+   Error = 1.014784
