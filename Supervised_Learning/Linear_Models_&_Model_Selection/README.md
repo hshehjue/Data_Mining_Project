@@ -193,3 +193,6 @@
    
 ### 1. Best Subset Selection (Cp)
 
+  <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/lambda.png
+ width=87% height=87%> 
+   
