@@ -1,12 +1,12 @@
 ## Description
-#### The assignment is designed to test diverse linear models along with manifold model selection techniques on an arbitrarily created dataset and datasets from an R package "ISLR". While each model being establined, the execution of the model selection prevented the data from being over or under-fitted. It was expected to keep the models' performance at the moderate or better level. In the Set(A), only a set of model selection methods are tested to see whether the methods properly sift out the variables where were employed to create the target variable. 
+#### The assignment is designed to test diverse linear models along with manifold model selection techniques on an arbitrarily created dataset and datasets from an R package "ISLR". While each model being establined, the execution of the model selection prevented the data from being over or under-fitted. It was expected to keep the models' performance at the moderate or better level. In the Set(A) & (B), only a set of model selection methods are tested to see whether the methods properly sift out the variables where were employed to create the target variable. 
 
 ## SET (A)
 ### Data
 ----
    * **Source** 
      - **Simulated data:**
-       - Y_hat = X + X^2 + X^3 + X^4 + X^5 + X^6 + X^7 + X^8 + X^9 + X^10
+       - X, X^2, X^3, X^4, X^5, X^6, X^7, X^8, X^9, X^10
       
    * **Composition**
      - Rows = 100
@@ -157,3 +157,39 @@
       mean((lasso.pred-y.test)^2) 
      ```
    Error = 1.014784
+
+
+
+----
+## SET (B)
+### DATA
+----
+   * **Source** 
+     - **Simulated data:**
+       - X, X^2, X^3, X^4, X^5, X^6, X^7, X^8, X^9, X^10
+      
+   * **Composition**
+     - Rows = 100
+     - Columns = 10
+     
+   * **Used Features**
+     - X^1 ~ X^10
+
+
+   * **Target**
+     - Y = 3 + 7*X^7 + Error
+     ```
+      X.mat.new <- matrix(c(rep(1,100), X^7), ncol = 2)
+      beta.new <- c(3, 7)
+      Y.new <- X.mat.new%*%beta.new + error
+     ```
+     ```
+      predictor <- matrix(c(X, X^2, X^3, X^4, X^5, X^6, X^7, X^8, X^9, X^10), ncol = 10)
+      simul.df.new <- data.frame(Y.new, predictor)
+     ```
+----
+### Model Selection Methods
+----
+   
+### 1. Best Subset Selection (Cp)
+
