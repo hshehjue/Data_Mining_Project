@@ -135,7 +135,7 @@
    * **Data Split**
      - Train (50%) & Test (50%)
 
-   * **Best Tuning Parameter (Lamda)**
+   * **Best Tuning Parameter (Lambda)**
    
    <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/bwd_adj.png
  width=87% height=87%> 
