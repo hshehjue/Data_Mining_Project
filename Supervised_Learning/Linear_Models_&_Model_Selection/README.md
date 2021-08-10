@@ -128,4 +128,14 @@
      - Optimal Number of Variables = 6
      - adj-R^2 with 4 = 0.9416
      
+ 
 
+### 4. Lasso Regression 
+
+   * **Data Split**
+     - Train (50%) & Test (50%)
+
+   * **Best Tuning Parameter (Lamda)**
+   
+   <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/bwd_adj.png
+ width=87% height=87%> 
