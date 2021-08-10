@@ -229,7 +229,8 @@
    <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/lasso2_coeff.png
  width=30% height=30%> 
 
-
+    - X^5, X^7, X^9
+    
 ----
 ## SET (C)
 ### DATA
