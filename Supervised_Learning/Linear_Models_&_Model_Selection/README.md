@@ -200,8 +200,27 @@
     
    <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/best_cp_1:2.png
  width=57% height=57%> 
+   
+      - The optimal number of feature = 1
  
+   * **Optimal Feature**
    <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/best_cp_2:2.png
  width=57% height=57%>
+    
+      - The optimal feature = X^7
  
+### 2. Lasso Regression
+
+
+   * **Data Split**
+     - Train (50%) & Test (50%)
+
+   * **Best Tuning Parameter (Lambda)** 
+   
+   <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/lambda.png
+ width=87% height=87%>
+
+
+
+
    
