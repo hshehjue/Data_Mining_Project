@@ -145,7 +145,7 @@
    * **Lasso Coefficient (with the optimal lambda)**
    
    <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/lasso_coeff1.png
- width=57% height=57%> 
+ width=40% height=40%> 
    <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/lasso_coeff2.png
- width=57% height=57%> 
+ width=40% height=40%> 
    
