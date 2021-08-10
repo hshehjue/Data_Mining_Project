@@ -193,6 +193,15 @@
    
 ### 1. Best Subset Selection (Cp)
 
-  <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/lambda.png
- width=87% height=87%> 
+  <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/best2.png
+ width=57% height=57%> 
+ 
+   * **Optimal Number of Features**
+    
+   <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/best_cp_1:2.png
+ width=57% height=57%> 
+ 
+   <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/best_cp_2:2.png
+ width=57% height=57%>
+ 
    
