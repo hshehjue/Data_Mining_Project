@@ -17,7 +17,7 @@
 
 
    * **Target**
-     - Y = 
+     - Y = 3 + 2*X + (-3)*X^2 + (0.3)*X^3 + Error
      ```
       set.seed(123)
       X <- rnorm(100) 
@@ -65,5 +65,7 @@
      - Optimal Number of Variables = 6
      - adj-R^2 with 6 = 0.9418
      
+
+### 2. Forward Stepwise Selection
      
-     
+  <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/best_sub.png width=58% height=58%> 
