@@ -239,16 +239,53 @@
      - *College* from ISLR package
       
    * **Composition**
-     - Rows = 100
-     - Columns = 10
+     - Rows = 777
+     - Columns = 18
      
    * **Used Features**
-     - 
-
+     - Apps
+     - Private
+     - Accept
+     - Enroll
+     - Top10perc
+     - Top25perc
+     - F.Undergrad
+     - P.Undergrad
+     - Outstate
+     - Room.Board
+     - Books
+     - Personal
+     - PhD
+     - Terminal
+     - S.F.Ratio
+     - perc.alumni
+     - Expend
+     - Grad.Rate
 
    * **Target**
-     - 
+     - Apps
+   
+   * **Train & Test Ratio**
+     - Train: 50%
+     - Test: 50%
+   
+----
+### Models
+----
+
+### 1. Linear model based on least squares
+  
+  
      
-----
-### Model Selection Methods
-----
+     
+
+
+
+
+
+
+
+
+
+
+
