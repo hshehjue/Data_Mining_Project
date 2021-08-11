@@ -347,16 +347,16 @@
      
      * Correlations
   
-       <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/PCR.png width=50% height=50%>
+       <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/week_corr.png width=70% height=70%>
  
      * Pair Plot
 
-      <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/PCR.png width=50% height=50%>
+      <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/week_pair.png width=70% height=70%>
  
      * Pattern of *Volume*
    
-      <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/PCR.png width=50% height=50%>
-     
+      <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/week_volume.png width=70% height=70%>
+       
    * **Used Features**
      - Direction
      - Lag1
@@ -369,6 +369,7 @@
    * **Target**
      - Direction
    
+     
 ----
 ### Models
 ----
@@ -381,7 +382,7 @@
 
    * **Confusion Matrics (Cut-off = 0.5)
           
-     <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/week_logistic_table.png width=100% height=100%>
+     <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/week_logistic_table.png width=50% height=50%>
     
    * **Error**
      
