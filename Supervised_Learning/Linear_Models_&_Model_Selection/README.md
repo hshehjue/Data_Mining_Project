@@ -320,8 +320,12 @@
     - MSE = 1400811.376
 
 
-### 4. Principal Component Regression (PCR)
-
+### 4. Principal Components Regression (PCR)
+  
+  * **The Optimal Number of Components**
+      
+    <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/college_lasso.png
+ width=35% height=35%>
 
 
 
