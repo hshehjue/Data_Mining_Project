@@ -341,7 +341,18 @@
       
    * **Composition**
      - Rows = 1,089
-     - Columns = 7
+     - Columns = 9
+   
+   * **Relationships**
+    
+   <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/PCR.png
+ width=50% height=50%>
+ 
+   <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/PCR.png
+ width=50% height=50%>
+ 
+   <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/PCR.png
+ width=50% height=50%>
      
    * **Used Features**
      - Direction
