@@ -344,15 +344,18 @@
      - Columns = 9
    
    * **Relationships**
-    
-   <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/PCR.png
- width=50% height=50%>
+     
+     * Correlations
+  
+       <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/PCR.png width=50% height=50%>
  
-   <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/PCR.png
- width=50% height=50%>
+     * Pair Plot
+
+      <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/PCR.png width=50% height=50%>
  
-   <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/PCR.png
- width=50% height=50%>
+     * Pattern of *Volume*
+   
+      <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/PCR.png width=50% height=50%>
      
    * **Used Features**
      - Direction
@@ -370,8 +373,22 @@
 ### Models
 ----
 
+### 1. Logistic Regression 
 
+   * **Coefficients**
 
+     <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/week_logistic_coef.png width=50% height=50%>
 
+   * **Confusion Matrics (Cut-off = 0.5)
+          
+     <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/week_logistic_table.png width=100% height=100%>
+    
+   * **Error**
+     
+     - MSE = 0.439
+   
+   
+
+  
 
 
