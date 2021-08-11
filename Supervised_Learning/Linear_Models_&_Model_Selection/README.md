@@ -275,9 +275,28 @@
 
 ### 1. Linear model based on least squares
   
-  
-     
-     
+  <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/college_linear.png
+ width=55% height=55%> 
+ 
+  * **Test Error**
+    - 1373994.683
+ 
+### 2. Ridge Regression 
+
+  * Optimal Lambda (5-fold CV)
+   
+   <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/college_ridge_lam.png
+  width=55% height=55%> 
+ 
+    - best lambda = 301.9518
+   
+  * **Ridge Coefficients**
+   
+   <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/college_ridge(1:2).png
+ width=55% height=55%>
+   
+   <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/college_ridge(2:2).png
+ width=55% height=55%>
 
 
 
