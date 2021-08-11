@@ -279,28 +279,48 @@
  width=55% height=55%> 
  
   * **Test Error**
-    - 1373994.683
+    - MSE = 1373994.683
  
 ### 2. Ridge Regression 
 
   * Optimal Lambda (5-fold CV)
    
    <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/college_ridge_lam.png
-  width=55% height=55%> 
+  width=65% height=65%> 
  
     - best lambda = 301.9518
    
   * **Ridge Coefficients**
    
    <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/college_ridge(1:2).png
- width=55% height=55%>
+ width=35% height=35%>
    
    <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/college_ridge(2:2).png
- width=55% height=55%>
+ width=35% height=35%>
+
+  * **Test Error**
+    - MSE = 2092402.187
 
 
+### 3. Lasso Regression
+ 
+  * Optimal Lambda (5-fold CV)
+   
+   <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/college_lasso_lam.png
+  width=65% height=65%> 
+ 
+    - best lambda = 26.2622
+   
+  * **Lasso Coefficients**
+   
+   <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/college_lasso.png
+ width=35% height=35%>
+   
+  * **Test Error**
+    - MSE = 1400811.376
 
 
+### 4. Principal Component Regression (PCR)
 
 
 
