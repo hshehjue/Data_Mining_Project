@@ -324,8 +324,40 @@
   
   * **The Optimal Number of Components**
       
-    <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/college_lasso.png
- width=35% height=35%>
+    <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/PCR.png
+ width=50% height=50%>
+ 
+        - M = 17 
+
+  * **Test Error**
+    - MSE = 1373994.6833
+     
+----     
+## SET (D)
+### DATA
+----
+   * **Source** 
+     - *Weekly* from ISLR package
+      
+   * **Composition**
+     - Rows = 1,089
+     - Columns = 7
+     
+   * **Used Features**
+     - Direction
+     - Lag1
+     - Lag2
+     - Lag3
+     - Lag4
+     - Lag5
+     - Volume
+
+   * **Target**
+     - Direction
+   
+----
+### Models
+----
 
 
 
