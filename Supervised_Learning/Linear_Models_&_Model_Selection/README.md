@@ -371,23 +371,26 @@
    
      
 ----
-### Models
-----
-
-### 1. Logistic Regression 
+### Significant Predictor
+##### Logistic Regression
+---- 
 
    * **Coefficients**
 
      <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/week_logistic_coef.png width=50% height=50%>
-
-   * **Confusion Matrics (Cut-off = 0.5)
-          
-     <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/week_logistic_table.png width=50% height=50%>
-    
-   * **Error**
      
-     - MSE = 0.439
+     - Only *Lag2* is statistically significant
+     - Develop the models below including only the significant feature *"Lag2"* as the predictor
+
+ 
+---
+### Models
+##### training data period from 1990 to 2008
+---
+
+### 1. Logistic Regression 
    
+   <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/week_logistic_coef.png width=50% height=50%>
    
 
   
