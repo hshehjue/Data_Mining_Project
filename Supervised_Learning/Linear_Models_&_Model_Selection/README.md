@@ -487,8 +487,35 @@ width=55% height=55%>
 ---
 ### Models
 ---
+### 1. Logistic Regression 
 
-### 1. Linear Discriminant Analysis (LDA)
+   * **Confusion Matrix*
+   
+   <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/auto_log.png
+width=27% height=27%>
+
+    - Accuracy = 0.8931298
+    - Test Error = 0.107
+     
+### 2. Linear Discriminant Analysis (LDA)
+
+   * **Confusion Matrix*
+ 
+   <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/auto_lda.png
+width=27% height=27%>
+
+    - Accuracy = 0.885
+    - Test Error = 0.115
 
 
+### 3. Quadratic Discriminant Analysis (QDA)
 
+   * **Confusion Matrix*
+   
+   <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/auto_qda.png
+width=27% height=27%>
+
+    - Accuracy = 0.863
+    - Test Error = 0.137
+
+#### the logistic model generates the best result in terms of the smallest test error among the three models
