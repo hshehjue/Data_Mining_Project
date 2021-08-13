@@ -445,5 +445,22 @@ width=27% height=27%>
    * **Composition**
      - Rows = 392
      - Columns = 9
+  
+   * **Target**
+     
+     - *mpg01* : 1 if mpg contains a value above its median, and a 0 if mpg contains a value below its median
+
+   * **Relationships**
+     
+     * Correlations 
+       
+     <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/week_qda_tab.png
+width=27% height=27%>
  
+     * Box and Jitter plots 
+
+     <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/week_qda_tab.png
+width=27% height=27%>
+
+     
    * **Used Features**
