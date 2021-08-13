@@ -489,7 +489,7 @@ width=55% height=55%>
 ---
 ### 1. Logistic Regression 
 
-   * **Confusion Matrix*
+   * **Confusion Matrix**
    
    <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/auto_log.png
 width=27% height=27%>
@@ -499,7 +499,7 @@ width=27% height=27%>
      
 ### 2. Linear Discriminant Analysis (LDA)
 
-   * **Confusion Matrix*
+   * **Confusion Matrix**
  
    <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/auto_lda.png
 width=27% height=27%>
@@ -510,7 +510,7 @@ width=27% height=27%>
 
 ### 3. Quadratic Discriminant Analysis (QDA)
 
-   * **Confusion Matrix*
+   * **Confusion Matrix**
    
    <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/auto_qda.png
 width=27% height=27%>
