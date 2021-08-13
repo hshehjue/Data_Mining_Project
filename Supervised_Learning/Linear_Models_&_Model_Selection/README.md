@@ -390,9 +390,60 @@
 
 ### 1. Logistic Regression 
    
-   <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/week_logistic_coef.png width=50% height=50%>
+   * **Logistic Coefficients**
+  
+   <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/week_log_coef_2.png width=50% height=50%>
    
+    - Lag2 is statistically significant 
+   
+   * **Confusion Matrix** 
+   
+   <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/week_log_tab_2.png width=27% height=27%>
+   
+    - Accuracy = 0.625
+    - Test Error = 0.375
 
+### 2. Linear Discriminant Analysis (LDA)
+   
+   * **Confusion Matrix**
+    
+   <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/week_lda_tab.png
+ width=27% height=27%>
+
+    - Accuracy = 0.625
+    - Test Error = 0.375
+    
+### 3. Quadratic Discriminant Analysis (QDA)
+
+   * **Confusion Matrix**
+   
+   <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/week_qda_tab.png
+width=27% height=27%>
+       
+    - Accuracy = 0.5866
+    - Test Error = 0.4134
+  
+   * **Reducing the error** 
+    
+     - transform the feature to the quadratic variable
+     
+      ```
+      qda.fit <- qda(Direction ~ poly(Lag2,2), data = Weekly, subset = train)
+      ```
+
+     - Test Error = 0.375
   
 
+----
+## SET (E)
+### DATA
+----
 
+   * **Source** 
+     - *Auto* from ISLR package
+      
+   * **Composition**
+     - Rows = 392
+     - Columns = 9
+ 
+   * **Used Features**
