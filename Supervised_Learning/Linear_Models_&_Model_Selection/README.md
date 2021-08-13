@@ -449,18 +449,46 @@ width=27% height=27%>
    * **Target**
      
      - *mpg01* : 1 if mpg contains a value above its median, and a 0 if mpg contains a value below its median
+     
 
    * **Relationships**
      
      * Correlations 
        
-     <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/week_qda_tab.png
-width=27% height=27%>
+     <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/auto_corr.png
+width=55% height=55%>
  
      * Box and Jitter plots 
 
-     <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/week_qda_tab.png
-width=27% height=27%>
+     <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/auto_%20relation1.png
+width=55% height=55%>
 
-     
+     <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/quto_relation2.png
+width=55% height=55%>
+
+     <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Linear_Models_%26_Model_Selection/image/quto_relation3.png
+width=55% height=55%>
+
+         - features that seem most associated with mpg01:
+         - horsepower, weight, year, origin
+   
    * **Used Features**
+     
+     - *mpg01 (target)*
+     - horsepower
+     - weight
+     - year
+     - origin
+     
+   * **Train & Test Ratio**
+     - Train: 50%
+     - Test: 50%
+
+---
+### Models
+---
+
+### 1. Linear Discriminant Analysis (LDA)
+
+
+
