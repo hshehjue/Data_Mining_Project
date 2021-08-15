@@ -18,7 +18,7 @@
 
   * **Source** 
     
-    - UCI Machine Learning Repository [Link](https://archive.ics.uci.edu/ml/index.php)
+    - [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/Wine+Quality)
 
   * **Training & Validation Sets Composition**
   
