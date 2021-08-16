@@ -4,7 +4,7 @@
 
    * **Purpose**
  
-     - In the project, we tried finding the multiclass classification model that classifies the wine quality scores with the lowest test errors by comparing multiple linear and non-linear models. The resulting model is designed to label each wine with its quality scores ranging from 3 to 9 based on the input data corresponding to the wine.
+     - In the project, we tried finding a multiclass classification model that classifies the wine quality scores with the lowest test errors by comparing multiple linear and non-linear models. The resulting model is designed to label each wine with its quality scores ranging from 3 to 9 based on the input data corresponding to the wine.
 
    * **Usage & Caution** 
   
