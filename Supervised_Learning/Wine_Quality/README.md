@@ -22,7 +22,7 @@
 
   * **Training & Test Sets Composition**
   
-  1. Spliting the whole data
+    1. Spliting the whole data
 
     _  |  Train  |  Test 
   -----|---------|---------
