@@ -58,7 +58,46 @@
     Row | 5223 | 1274
   
   
-       
+## 4. Model Details
+  
+  * **Model Developers** 
+    - **Name:** SeungHeon Han, Leqi Yin, Qunzhe Ding 
+    - **Affiliation:** the Master of Science in Business Analytics at *the George Washington University*
+    - **Project Assigned By:** DNSC6279 - Data Mining
+    - **E-mail:** seung225@gwu.edu
+    
+  * **Established Date**
+    - 2021, April
+ 
+  * **Model Types**
+    - Support Vector Machine(SVM)
+      - Radial Kernel 
+      - Plynomial Kernel
+    - Multinomial Logistic Regression
+    - K-Nearest Neighbor(KNN)
+    - Quadratic Discriminant Analysis
+
+
+  * **Software & Language**
+  - R
+  - R Studio v3.8.3
+  
+  * **Inputs:**
+    - *fixed.acidity*    
+    - *volatile.acidity* 
+    - *citric.acid*   
+    - *residual.sugar*    
+    - *chlorides*        
+    - *free.sulfur.dioxide*
+    - *total.sulfur.dioxide*
+    - *density*    
+    - *pH*            
+    - *sulphates*        
+    - *alcohol*                     
+    - *color* 
+
+  * **Target:**
+    - *quality*
 
 
    
