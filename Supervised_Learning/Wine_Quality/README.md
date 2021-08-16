@@ -24,11 +24,11 @@
   
     1. Spliting the whole data
 
-    _  |  Train  |  Test 
-  -----|---------|---------
-  Ratio | 80% | 20%
-   Col | 13 | 13
-   Row | 5223 | 1274
+      _  |  Train  |  Test 
+    -----|---------|---------
+    Ratio | 80% | 20%
+    Col | 13 | 13
+    Row | 5223 | 1274
   
 
 
