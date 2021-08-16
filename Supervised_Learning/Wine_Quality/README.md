@@ -20,8 +20,17 @@
     
     - [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/Wine+Quality)
 
-  * **Training & Validation Sets Composition**
+  * **Training & Test Sets Composition**
   
+  1. Spliting the whole data
+
+    _  |  Train  |  Test 
+  -----|---------|---------
+  Ratio | 80% | 20%
+   Col | 13 | 13
+   Row | 5223 | 1274
+  
+
 
 
   
