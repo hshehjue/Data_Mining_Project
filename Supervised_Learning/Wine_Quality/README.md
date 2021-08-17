@@ -156,7 +156,7 @@
     - Taking radial kernel here 
 
 
-### **4.2 Model Debugging** 
+### **4.3 Model Debugging** 
    
    * **Remediation: Removing Outliers**
      
@@ -169,14 +169,28 @@
      <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Wine_Quality/images/removed_out.png width=70% height=70%>
 
  
+### **4.4 An Alternative Models**
+
+* **Models**
+  - SVM with polynomial basis kernel trick
+  - Multinomial Logistic Regression
+  - K-Nearest Neighbor(KNN)
+  - Quadratic Discriminant Analysis(QDA)
+
+### *the details of all the alternative models are described in the [Final Report]()*
+
+* **Comparison among the models**
+ 
+Model  |  Test Error
+-------|---------
+**SVM(radial kernel)** | **0.3187**
+SVM(Polynomial kernel) | 0.3917
+Logistic Regression | 0.4639
+KNN | 0.3603
+QDA | 0.4702
  
  
- 
- 
- - Polynomial Kernel
- - Multinomial Logistic Regression
- - K-Nearest Neighbor(KNN)
- - Quadratic Discriminant Analysis(QDA)
+
    
     
   
