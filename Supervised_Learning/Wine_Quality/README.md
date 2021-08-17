@@ -146,21 +146,34 @@
     - The test error produced by the fitted SVM model with radial kernel is approximately 31.87%
 
 ### **4.2 Kernel**
+   
+   - *Pairs of variables with the seven classes of “quality”*
 
+   <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Wine_Quality/images/svm_r_pre.png width=70% height=70%>
+   
+    - X-axis and Y-axis correspond to the different pairs of the independent variables and the seven distinct quality scores are differentiated with different point colors. The distributions of the seven quality labels between different pairs of predictors seem hard to be dissected by linear decision boundary through the one-versus-one approach. Under the circumstances, the quality labels should be better to be classified by SVM models with radial and polynomial kernels.
 
+    - Taking radial kernel here 
 
 
 ### **4.2 Model Debugging** 
    
    * **Remediation: Removing Outliers**
+     
+     - Box plots by columns before removing outliers
+        
+     <img src=hhttps://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Wine_Quality/images/prior_out.png width=70% height=70%>
+
+     - Box plots by columns after removing outliers
+     
+     <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Wine_Quality/images/removed_out.png width=70% height=70%>
+
  
  
  
  
  
- 
- 
- - Plynomial Kernel
+ - Polynomial Kernel
  - Multinomial Logistic Regression
  - K-Nearest Neighbor(KNN)
  - Quadratic Discriminant Analysis(QDA)
