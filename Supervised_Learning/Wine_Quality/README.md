@@ -149,7 +149,7 @@
    
    - *Pairs of variables with the seven classes of “quality”*
 
-   <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Wine_Quality/images/svm_r_pre.png width=70% height=70%>
+   <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Wine_Quality/images/svm_r_pre.png width=90% height=90%>
    
     - X-axis and Y-axis correspond to the different pairs of the independent variables and the seven distinct quality scores 
       are differentiated with different point colors. The distributions of the seven quality labels between different pairs of predictors 
