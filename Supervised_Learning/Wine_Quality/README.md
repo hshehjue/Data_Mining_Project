@@ -151,7 +151,10 @@
 
    <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Wine_Quality/images/svm_r_pre.png width=70% height=70%>
    
-    - X-axis and Y-axis correspond to the different pairs of the independent variables and the seven distinct quality scores are differentiated with different point colors. The distributions of the seven quality labels between different pairs of predictors seem hard to be dissected by linear decision boundary through the one-versus-one approach. Under the circumstances, the quality labels should be better to be classified by SVM models with radial and polynomial kernels.
+    - X-axis and Y-axis correspond to the different pairs of the independent variables and the seven distinct quality scores 
+      are differentiated with different point colors. The distributions of the seven quality labels between different pairs of predictors 
+      seem hard to be dissected by linear decision boundary through the one-versus-one approach. 
+      Under the circumstances, the quality labels should be better to be classified by SVM models with radial and polynomial kernels.
 
     - Taking radial kernel here 
 
