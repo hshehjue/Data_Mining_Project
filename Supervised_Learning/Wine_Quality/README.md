@@ -97,6 +97,7 @@
   * **Parameters**
     
     
+    
     - Cost = 100
     - Gamma = 1
 
