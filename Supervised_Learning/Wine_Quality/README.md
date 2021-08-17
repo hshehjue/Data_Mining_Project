@@ -179,7 +179,7 @@
   - Multinomial Logistic Regression
   - K-Nearest Neighbor(KNN)
   - Quadratic Discriminant Analysis(QDA)
-* *the details of all the alternative models are described in the [Final Report]()*
+* *the details of all the alternative models are described in the [Final Report](https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Wine_Quality/Final%20Report_Data%20Mining%20.pdf)*
 
 * **Comparison among the models**
  
