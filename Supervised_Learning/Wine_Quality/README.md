@@ -70,8 +70,8 @@
     - 2021, April
  
   * **Model Types**
-    - Support Vector Machine(SVM)
-      - Radial Kernel 
+    - Support Vector Machine(SVM) with Radial Kernel Trick
+      
 
   * **Software & Language**
     - R v4.0.3
@@ -95,19 +95,28 @@
     - *quality*
 
   * **Parameters**
-    
-    
-    
+   
+   <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Wine_Quality/images/svm_r.png width=40% height=40%>
+  
     - Cost = 100
     - Gamma = 1
 
 
-## 4. Model Performance
+## 4. Quantitative Analysis
 
-  * **Metrics**
-    
-    - 
+### **4.1 Model Performance** 
+* **Metrics**
+  - Sensitivity 
+    - True Positive / (True Positive + False Negative)  
+  - Benchmark values
+    - the proportion of the number of observations of test set response by each class to the total number of the observations of the test set response. 
+  - Accuracy
+    - (True Positive + True Negative) / (True Positive + True Negative + False Positive + False Negative)
+  - Error
+    - 1 - Accuracy
 
+* **On Test Data set**
+  
 
 
 
