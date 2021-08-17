@@ -162,7 +162,7 @@
      
      - Box plots by columns before removing outliers
         
-     <img src=hhttps://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Wine_Quality/images/prior_out.png width=70% height=70%>
+     <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Wine_Quality/images/prior_out.png width=70% height=70%>
 
      - Box plots by columns after removing outliers
      
