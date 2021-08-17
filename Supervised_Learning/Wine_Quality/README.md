@@ -1,4 +1,4 @@
-# Classification of Wine Quality Scores
+# Model Card - Classification of Wine Quality Scores
 
 ## 1. Introduction
 
@@ -58,7 +58,7 @@
     Row | 5223 | 1274
   
   
-## 4. Model Details
+## 3. Model Details
   
   * **Model Developers** 
     - **Name:** SeungHeon Han, Leqi Yin, Qunzhe Ding 
@@ -72,15 +72,10 @@
   * **Model Types**
     - Support Vector Machine(SVM)
       - Radial Kernel 
-      - Plynomial Kernel
-    - Multinomial Logistic Regression
-    - K-Nearest Neighbor(KNN)
-    - Quadratic Discriminant Analysis
-
 
   * **Software & Language**
-  - R
-  - R Studio v3.8.3
+    - R v4.0.3
+    - R Studio v1.3.1093
   
   * **Inputs:**
     - *fixed.acidity*    
@@ -99,7 +94,26 @@
   * **Target:**
     - *quality*
 
+  * **Parameters**
+    
+    
+    - Cost = 100
+    - Gamma = 1
 
+
+## 4. Model Performance
+
+  * **Metrics**
+    
+    - 
+
+
+
+
+      - Plynomial Kernel
+    - Multinomial Logistic Regression
+    - K-Nearest Neighbor(KNN)
+    - Quadratic Discriminant Analysis(QDA)
    
     
   
