@@ -132,13 +132,37 @@
     3 | 4 | 5 | 6 | 7 | 8 | 9 
     ---|---|---|---|---|---|---
     0.0016|0.0353|0.3155|0.4568|0.1617|0.0290|0.0000
+ 
+     - According to the sensitivity, the quality score 4, 5, 6, 7, 8 are relatively well classified when compared with the benchmark. The class 3 which has been trained with very small number of training observations demonstrates unsatisfactory accuracy. In the case of the class 9, the number of its observations is too small to be assigned to the test set.
+
+  - **Accuracy**
+    
+    - Accuracy = 0.6813
+    - The overall accuracy of the SVM model with radial kernel is about 68.13%
+    
+  - **Test Error**
+    
+    - 1 - Accuracy = 0.3187
+    - The test error produced by the fitted SVM model with radial kernel is approximately 31.87%
+
+### **4.2 Kernel
 
 
 
-    - Plynomial Kernel
-    - Multinomial Logistic Regression
-    - K-Nearest Neighbor(KNN)
-    - Quadratic Discriminant Analysis(QDA)
+### **4.2 Model Debugging** 
+   
+   * **Remediation: Removing Outliers**
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ - Plynomial Kernel
+ - Multinomial Logistic Regression
+ - K-Nearest Neighbor(KNN)
+ - Quadratic Discriminant Analysis(QDA)
    
     
   
