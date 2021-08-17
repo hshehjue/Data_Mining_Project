@@ -121,11 +121,11 @@
    
    <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Wine_Quality/images/Confusion_svm_r.png width=50% height=50%>
 
-      Sensitivity 
+   - Sensitivity 
     
-      3 | 4 | 5 | 6 | 7 | 8 | 9 
-      ---|---|---|---|---|---|---
-      0.00|0.133|0.714|0.746|0.617|0.378|NaN
+     3 | 4 | 5 | 6 | 7 | 8 | 9 
+     ---|---|---|---|---|---|---
+     0.00|0.133|0.714|0.746|0.617|0.378|NaN
     
     
   
