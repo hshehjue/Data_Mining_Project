@@ -172,7 +172,7 @@
      <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/Wine_Quality/images/removed_out.png width=70% height=70%>
 
  
-### **4.4 An Alternative Models**
+### **4.4 Alternative Models**
 
 * **Models**
   - SVM with polynomial basis kernel trick
