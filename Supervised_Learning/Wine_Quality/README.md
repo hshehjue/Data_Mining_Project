@@ -183,13 +183,13 @@
 
 * **Comparison among the models**
  
-Model  |  Test Error
--------|---------
-**SVM(radial kernel)** | **0.3187**
-SVM(Polynomial kernel) | 0.3917
-Logistic Regression | 0.4639
-KNN | 0.3603
-QDA | 0.4702
+  Model  |  Test Error
+  -------|---------
+  **SVM(radial kernel)** | **0.3187**
+  SVM(Polynomial kernel) | 0.3917
+  Logistic Regression | 0.4639
+  KNN | 0.3603
+  QDA | 0.4702
  
  
 
