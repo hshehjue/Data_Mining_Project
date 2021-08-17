@@ -145,7 +145,8 @@
     - 1 - Accuracy = 0.3187
     - The test error produced by the fitted SVM model with radial kernel is approximately 31.87%
 
-### **4.2 Kernel
+### **4.2 Kernel**
+
 
 
 
