@@ -80,7 +80,7 @@ type of mortgage (0).
 ----
 ## 3. Evaluation Data
 * **Source:** Github repository of jphall663 [Link](https://github.com/jphall663/GWU_rml/tree/master/assignments/data)
-  - Same data sets are also available [Here](https://github.com/hshehjue/Responsible_ML/tree/main/data)
+  - Same data sets are also available [Here](https://github.com/hshehjue/Project_Data_Mining/tree/main/Supervised_Learning/House_Mortgage/data)
   
 * **Test Data Composition:** 
   - number of row: 19,831
