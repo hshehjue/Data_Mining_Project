@@ -29,7 +29,7 @@
 ## 2. Training Data
 * **Data:** Home Mortgage Disclosure Act (HMDA)
 * **Source:** Github repository of jphall663 [Link](https://github.com/jphall663/GWU_rml/tree/master/assignments/data)
-  - Same data sets are also available [here](https://github.com/hshehjue/Responsible_ML/tree/main/data)
+  - Same data sets are also available [here](https://github.com/hshehjue/Project_Data_Mining/tree/main/Supervised_Learning/House_Mortgage/data)
 * **Training & Validation Sets Composition:**
   1. Spliting the whole data
 
