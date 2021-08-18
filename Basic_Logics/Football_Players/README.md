@@ -21,7 +21,7 @@
 ## Data
    * **Source**
      - Prof. Shradha Gawankar in the DNSC6211: Programming for Analytics
-     - Data is available [here](https://github.com/hshehjue/Data_Mining_Project/blob/main/Basic_Logics/Football_Players/Football_Players.xlsx)
+     - Data is available [here](https://github.com/hshehjue/Machine_Learning_Projects/blob/main/Basic_Logics/Football_Players/Football_Players.xlsx)
    * **Data Composition**
      - **Rows:** 43
      - **Columns:** 9
