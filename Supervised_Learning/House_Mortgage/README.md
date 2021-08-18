@@ -171,16 +171,16 @@ type of mortgage (0).
 
 ### **5.2 Global Feature Importance**
 * **Bar graph for Features vs. Mean Abs Feature Score**
-  <img src=https://github.com/hshehjue/Responsible_ML/blob/main/images/feature_importance.png width=80% height=80%>
+  <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/House_Mortgage/images/feature_importance.png width=80% height=80%>
   - "loan_to_value_ratio_std" has the dominant influence on classifying "high_priced" label
   - "loan_amount_std", "property_value_std", and "debt_to_income_ratio_std" are also substantially affecting the response at the similar level
 
 ### **5.3 Feature Behavior**
 * **ICE curve with histogram:**
-  <img src=https://github.com/hshehjue/Responsible_ML/blob/main/images/ICE1.png width=80% height=80%>
-  <img src=https://github.com/hshehjue/Responsible_ML/blob/main/images/ICE2.png width=80% height=80%>
-  <img src=https://github.com/hshehjue/Responsible_ML/blob/main/images/ICE3.png width=80% height=80%>
-  <img src=https://github.com/hshehjue/Responsible_ML/blob/main/images/ICE4.png width=80% height=80%>
+  <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/House_Mortgage/images/ICE1.png width=80% height=80%>
+  <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/House_Mortgage/images/ICE2.png width=80% height=80%>
+  <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/House_Mortgage/images/ICE3.png width=80% height=80%>
+  <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/House_Mortgage/images/ICE4.png width=80% height=80%>
   - Red line represents the partial dependence
   - Inconsistent local behaviors are observed in every feature except "term_360", "conforming", "debt_to_income_ratio_missing", and "loan_amount_property_value" 
   - In particular, the rows belonging to higher percentile groups are more likely to behave differently compared to the partial dependence
@@ -225,14 +225,14 @@ type of mortgage (0).
 
 ### **5.5 Security**
 * **White-hat Sorrogate Model & Adversarial Example**
-  <img src=https://github.com/hshehjue/Responsible_ML/blob/main/images/stolen.png width=100% height=100%>
-  <img src=https://github.com/hshehjue/Responsible_ML/blob/main/images/adversarial_ex.png width=80% height=80%>
+  <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/House_Mortgage/images/stolen.png width=100% height=100%>
+  <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/House_Mortgage/images/adversarial_ex.png width=80% height=80%>
   - restore the decision tree based on the simulated data and the predicted values
   - Based on the restored model, extremely high and low predictions can be generated
  
 ### **5.6 Model Debugging** 
 * **Residual Plot Analysis**
-  * <img src=https://github.com/hshehjue/Responsible_ML/blob/main/images/residual.png width=40% height=40%>
+  * <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/House_Mortgage/images/residual.png width=40% height=40%>
   * the model performance in classification can be unbalanced by labels
 * **Remediation: Down-Sampling** 
   - Manually driving up the signal from high-priced loans to fix the unbalanced residuals
