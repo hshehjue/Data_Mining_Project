@@ -142,7 +142,7 @@ type of mortgage (0).
    
 * **ON VALIDATION DATA**
     * **AUC = 0.7806**
-    <img src=https://github.com/hshehjue/Project_Data_Mining/tree/main/Supervised_Learning/House_Mortgage/images/ROC.png width=50% height=50%>
+    <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/House_Mortgage/images/ROC.png width=50% height=50%>
 
     * **Confusion Matrix**
       _ | Positive | Negative
