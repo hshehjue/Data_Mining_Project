@@ -53,7 +53,7 @@
    - the transformed data is repaired by [DisparateImpactRemover - AIF360](https://github.com/Trusted-AI/AIF360/blob/master/aif360/algorithms/preprocessing/disparate_impact_remover.py) 
    - 1 out of 13 features is used for separating the data into "black" & "white" groups as a protected attribute
    - 7 out of 13 features are used for the training process including the target variable
-   - transformed data is available [here](https://github.com/hshehjue/Responsible_ML/tree/main/data)
+   - transformed data is available [here](https://github.com/hshehjue/Project_Data_Mining/tree/main/Supervised_Learning/House_Mortgage/data)
    ------
    
   
