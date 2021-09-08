@@ -145,10 +145,11 @@ type of mortgage (0).
     <img src=https://github.com/hshehjue/Project_Data_Mining/blob/main/Supervised_Learning/House_Mortgage/images/ROC.png width=50% height=50%>
 
     * **Confusion Matrix**
-       _ | Positive | Negative
-       --|----------|-----------
-       Positive | 1,407 | 4,038
-       Negative | 3,223 | 39,358
+    
+          _ | Positive | Negative
+          --|----------|-----------
+          Positive | 1,407 | 4,038
+          Negative | 3,223 | 39,358
   
     * **True Positive Rate:** 0.304
     * **False Positive Rate:** 0.093
