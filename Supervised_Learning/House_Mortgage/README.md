@@ -146,10 +146,10 @@ type of mortgage (0).
 
     * **Confusion Matrix**
     
-          _ | Positive | Negative
-          --|----------|-----------
-          Positive | 1,407 | 4,038
-          Negative | 3,223 | 39,358
+       _ | Positive | Negative
+       --|----------|-----------
+       Positive | 1,407 | 4,038
+       Negative | 3,223 | 39,358
   
     * **True Positive Rate:** 0.304
     * **False Positive Rate:** 0.093
