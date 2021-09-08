@@ -112,6 +112,7 @@ type of mortgage (0).
 * **Target:**
   - *high priced*
 * **Parameters**
+
   Hyper Parameters | Value
   -----------------|---------
    max bins | 128
@@ -156,6 +157,7 @@ type of mortgage (0).
  
  * **ON TEST DATA**
     * each value was calculated over five folds  
+    
       fold | ACC | AUC | F1 | Logloss | MSE
       -----|-----|-----|----|---------|-----
       1 | 0.901 | 0.839 | 0.407 | 0.251 | 0.077
@@ -165,6 +167,7 @@ type of mortgage (0).
       5 | 0.898 | 0.830 | 0.397 | 0.264 | 0.080
     
     * average the five folds
+    
       _ | ACC | AUC | F1 | Logloss | MSE
       --|-----|-----|----|---------|-----
       AVG | 0.904 | 0.830 | 0.383 | 0.252 | 0.076
@@ -203,6 +206,7 @@ type of mortgage (0).
   - acceptable level: > 0.8 
   
 * **AIR for the three groups of interest**
+
   Groups | AIR
   -------| ------
   White vs Asian | 1.204 > 0.8
@@ -216,6 +220,7 @@ type of mortgage (0).
     * train EBM on the repaired data and then implementing another random grid search considering AIR with 0.17 cutoff 
     * retrain EBM with the optimal parameters and features obtained by the grid search
 * **AIR from the remediated EBM**
+
   Groups | AIR
   -------| ------
   White vs Asian | 1.065 > 0.8
@@ -238,6 +243,7 @@ type of mortgage (0).
 * **Remediation: Down-Sampling** 
   - Manually driving up the signal from high-priced loans to fix the unbalanced residuals
   - Leading to increase bias, which lowers the AIR for the "White vs Black" group 
+  
      Groups | AIR
      -------| ------
     White vs Asian | 1.236 > 0.8
