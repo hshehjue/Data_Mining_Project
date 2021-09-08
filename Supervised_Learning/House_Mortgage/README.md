@@ -261,6 +261,7 @@ type of mortgage (0).
 * **Performance**
   - **on test data**
     * each value was calculated over five folds  
+    
       fold | ACC | AUC | F1 | Logloss | MSE
       -----|-----|-----|----|---------|-----
       1 | 0.902 | 0.814 | 0.376 | 0.262 | 0.078
@@ -270,11 +271,13 @@ type of mortgage (0).
       5 | 0.896 | 0.810 | 0.383 | 0.275 | 0.082
     
     * average the five folds
+    
       *XGB* | ACC | AUC | F1 | Logloss | MSE
       --|-----|-----|----|---------|-----
       AVG | 0.903 | 0.801 | 0.358 | 0.265 | 0.078
       
       **Comparing to EBM**
+    
       *EBM* | ACC | AUC | F1 | Logloss | MSE
       --|-----|-----|----|---------|-----
       AVG | 0.904 | 0.830 | 0.383 | 0.252 | 0.076
