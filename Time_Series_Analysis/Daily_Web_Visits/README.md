@@ -1,5 +1,5 @@
-# Univariate & Multivariate Time Series Analysis: Web Visit Frequency
-### LINK()
+# Time Series Analysis: Website Visit Frequency
+### LINK: [Project Report](https://github.com/hshehjue/Project_Machine_Learning/blob/main/Time_Series_Analysis/Daily_Web_Visits/Website_report.pdf)
 ## Information
 * **Project Type:** Final Project
 * **Delievered by:** DNSC6219: Time Series Forecasting for Analytics
