@@ -1,5 +1,5 @@
 # Time Series Analysis: Website Visit Frequency
-### LINK: [Project Report](https://github.com/hshehjue/Project_Machine_Learning/blob/main/Time_Series_Analysis/Daily_Web_Visits/Website_report.pdf)
+### LINK: [Project Report](https://github.com/hshehjue/Project_Machine_Learning/blob/main/Time_Series_Analysis/Daily_Web_Visits/Final%20Report.pdf)
 ## Information
 * **Project Type:** Final Project
 * **Delievered by:** DNSC6219: Time Series Forecasting for Analytics
