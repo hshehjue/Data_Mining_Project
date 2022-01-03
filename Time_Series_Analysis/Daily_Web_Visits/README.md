@@ -39,7 +39,8 @@
 
 * **Used Variables:**
   - **Univariate Models**
-    - Dependent Variable: First.Visits
+    - Dependent Variable: 
+      - *First.Visits*
   - **Multivariate Models**
     - Dependent Variable: 
       - *First.Visits*
