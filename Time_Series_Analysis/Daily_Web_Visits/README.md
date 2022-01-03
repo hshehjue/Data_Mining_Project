@@ -43,6 +43,6 @@
   - **Multivariate Models**
     - Dependent Variable: 
       - *First.Visits*
-    - Independent Variables: Page.Loads
+    - Independent Variables:
       - *Page.Loads*
       - *Returning.Visits*
